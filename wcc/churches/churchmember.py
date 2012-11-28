@@ -15,7 +15,7 @@ from plone.namedfile.field import NamedBlobImage, NamedBlobFile
 
 from plone.app.textfield import RichText
 
-from z3c.relationfield.schema import RelationList, RelationChoice
+from z3c.relationfield.schema import RelationList, RelationChoice, Relation
 from plone.formwidget.contenttree import ObjPathSourceBinder
 
 from wcc.churches import MessageFactory as _
@@ -28,19 +28,65 @@ class IChurchMember(form.Schema, IImageScaleTraversable):
     Church Member
     """
 
-    # If you want a schema-defined interface, delete the form.model
-    # line below and delete the matching file in the models sub-directory.
-    # If you want a model-based interface, edit
-    # models/churchmember.xml to define the content type
-    # and add directives here as necessary.
+    church_family = RelationChoice(
+        title=_(u'Church Family'),
+        source=ObjPathSourceBinder(object_provides='wcc.churches.churchfamily.IChurchFamily'),
+        required=False
+    )
 
-    form.model("models/churchmember.xml")
+    based_in = schema.Choice(
+                title=_(u'Based in'),
+                vocabulary='wcc.vocabulary.country',
+                description=_(u''),
+                )
+
+    present_in = schema.List(
+                title=_(u'Present in'),
+                value_type=schema.Choice(vocabulary='wcc.vocabulary.country'),
+                description=_(u''),
+                )
+    membership = schema.Int(
+                title=_(u'Membership'),
+                description=_(u''),
+                )
+
+    pastors = schema.Int(
+                title=_(u'Pastors'),
+                description=_(u''),
+                )
+
+    congregations = schema.Int(
+                title=_(u'Congregations'),
+                description=_(u''),
+                )
+
+    member_of = RelationList(
+            title=_(u'label_member_of', u"Member Of"),
+            default=[],
+            value_type=RelationChoice(
+                source=ObjPathSourceBinder(object_provides='wcc.churches.churchbody.IChurchBody')
+                ),
+            required=False
+    )
+
+    assoc_member_of = RelationChoice(
+            title=_(u'label_assoc_member_of', u'Associate Member Of'),
+            source=ObjPathSourceBinder(object_provides='wcc.churches.churchbody.IChurchBody'),
+            required=False
+    )
 
 
-# View class
-# The view will automatically use a similarly named template in
-# churchmember_templates.
-# Template filenames should be all lower case.
+    website = schema.URI(
+            title=_(u'URL'),
+            description=_(u''),
+            )
+
+    form.widget(text='plone.app.z3cform.wysiwyg.WysiwygFieldWidget')
+    text = schema.Text(
+            title=_(u'Text'),
+            description=_(u''),
+            )
+
 
 class Index(dexterity.DisplayForm):
     grok.context(IChurchMember)
