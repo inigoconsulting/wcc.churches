@@ -5,7 +5,7 @@ from zope import schema
 from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 
-from zope.interface import invariant, Invalid
+from zope.interface import invariant, Invalid, Interface
 
 from z3c.form import group, field
 
@@ -19,7 +19,7 @@ from z3c.relationfield.schema import RelationList, RelationChoice
 from plone.formwidget.contenttree import ObjPathSourceBinder
 
 from wcc.churches import MessageFactory as _
-
+from wcc.churches.backref import back_references
 
 # Interface class; used to define content-type schema.
 
@@ -27,22 +27,40 @@ class IChurchFamily(form.Schema, IImageScaleTraversable):
     """
     Church Family
     """
-
-    # If you want a schema-defined interface, delete the form.model
-    # line below and delete the matching file in the models sub-directory.
-    # If you want a model-based interface, edit
-    # models/churchfamily.xml to define the content type
-    # and add directives here as necessary.
-
-    form.model("models/churchfamily.xml")
+    
+    websites = schema.List(
+        title=_(u'label_websites', u'Websites'),
+        value_type=schema.TextLine()
+    )
 
 
-# View class
-# The view will automatically use a similarly named template in
-# churchfamily_templates.
-# Template filenames should be all lower case.
+class IChurchFamilyDataProvider(Interface):
+    pass
+
+class ChurchFamilyDataProvider(grok.Adapter):
+    grok.context(IChurchFamily)
+    grok.implements(IChurchFamilyDataProvider)
+
+    @property
+    def text(self):
+        return self.context.text
+
+    @property
+    def websites(self):
+        return self.context.websites
+
+    @property
+    def churchbodies(self):
+        return back_references(self.context, 'member_of')
+
+    @property
+    def churchmembers(self):
+        return back_references(self.context, 'church_family')
 
 class Index(dexterity.DisplayForm):
     grok.context(IChurchFamily)
     grok.require('zope2.View')
     grok.name('view')
+
+    def provider(self):
+        return IChurchFamilyDataProvider(self.context)
