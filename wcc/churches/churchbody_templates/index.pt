@@ -26,12 +26,23 @@
     </metal:slot>
     <body>
 
+        <metal:title fill-slot="content-title">
+            <h1 tal:define="provider view/provider;"
+                tal:content="provider/full_title">
+            </h1>
+        </metal:title>
+
         <metal:main fill-slot="content-core">
             <metal:content-core define-macro="content-core">
                 <tal:block define="provider view/provider">
 
                     <div id="churchbody-bodytext" tal:content="structure context/text">
                     </div>
+
+                    <tal:block condition="provider/remoteUrl">
+                    <b class="churchbody-label">Website:</b> 
+                    <a tal:attributes="href provider/remoteUrl" tal:content="provider/remoteUrl"></a>
+                    </tal:block>
 
                     <table id="churchbody-memberdetails">
                         <tr>

@@ -79,6 +79,14 @@ class IChurchBody(form.Schema, IBasic, IImageScaleTraversable):
         required=False
     )
 
+    remoteUrl = schema.TextLine(
+        title=_(u"Website"),
+        default=u'http://',
+        description=u"",
+        required=False,
+    )
+
+
     form.order_before(full_title = '*')
     form.order_before(title = '*')
 
@@ -96,6 +104,10 @@ class ChurchBodyDataProvider(grok.Adapter):
     @property
     def title(self):
         return self.context.title
+
+    @property
+    def full_title(self):
+        return self.context.full_title
 
     @property
     def text(self):
@@ -128,6 +140,14 @@ class ChurchBodyDataProvider(grok.Adapter):
     @property
     def other_assoc_members(self):
         return self.context.other_assoc_members
+
+    @property
+    def remoteUrl(self):
+        url =  self.context.remoteUrl
+        if url == 'http://':
+            return ''
+        return url
+
 
 
 # View class
