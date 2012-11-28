@@ -1,44 +1,97 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      lang="en"
-      metal:use-macro="context/main_template/macros/master"
-      i18n:domain="wcc.churches">
-<body>
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="wcc.churchbody">
 
-<tal:comment tal:condition="nothing">
-    This is a sample view template. It will not be used for rendering the
-    content unless activated by creation of a view class with a matching name.
-    
-    Note that we're using Plone 4 macros. Replace them with Plone 3 macros
-    if needed.
-</tal:comment>
+    <metal:slot fill-slot="style_slot">
+    <style>
+        #churchbody-memberdetails {
+           width:100%; 
+        }
 
-<metal:main fill-slot="content-core">
-  <metal:content-core define-macro="content-core">
+        #churchbody-memberdetails th {
+            text-align:right;
+            padding-right:10px;
+            width:200px;
+        }
 
-    <tal:block repeat="widget view/widgets/values">
-        <div class="field" tal:condition="python:widget.__name__ not in ('IBasic.title', 'IBasic.description', 'title', 'description',)">
-            <label tal:content="widget/label" />
-            <br />
-            <div tal:content="structure widget/render" />
-        </div>
-    </tal:block>
+        #churchbody-memberdetails tr {
+            border-top:1px solid #ccc;
+            vertical-align:top;
+        }
+    </style>
+    </metal:slot>
+    <body>
 
-    <fieldset tal:repeat="group view/groups"
-              tal:attributes="id python:''.join((group.prefix, 'groups.', group.__name__)).replace('.', '-')">
-        <legend tal:content="group/label" />
-        <div class="field" tal:repeat="widget group/widgets/values">
-            <label tal:content="widget/label" />
-            <br />
-            <div tal:content="structure widget/render" />
-        </div>
-    </fieldset>
+        <metal:main fill-slot="content-core">
+            <metal:content-core define-macro="content-core">
+                <tal:block define="provider view/provider">
 
+                    <div id="churchbody-bodytext" tal:content="structure context/text">
+                    </div>
 
-  </metal:content-core>
-</metal:main>
+                    <table id="churchbody-memberdetails">
+                        <tr>
+                            <th>Member Of:</th>
+                            <td>
+                                <tal:block condition="provider/member_of">
+                                    <a tal:attributes="href provider/member_of/absolute_url"
+                                        tal:content="provider/member_of/title"></a>
+                                </tal:block>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Associate Member Of: </th>
+                            <td>
+                                <tal:block condition="provider/assoc_member_of">
+                                    <a tal:attributes="href provider/assoc_member_of/absolute_url"
+                                        tal:content="provider/assoc_member_of/title"></a>
+                                </tal:block>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Members: <br/>
+                                <div class="discreet">(Within the WCC membership)</div></th>
+                            <td>
+                                <b>Churches: </b>
+                                <ul>
+                                    <li tal:repeat="member provider/members">
+                                        <a tal:attributes="href member/absolute_url" tal:content="member/title">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Other Members: 
+                                <td tal:content="structure provider/other_members">
+                                </td>
+                            </tr>
+                            <tr tal:condition="provider/assoc_members">
+                                <th>Associate Members: <br/>
+                                    <div class="discreet">(Within the WCC membership)</div></th>
+                                <td>
+                                    <b>Churches: </b>
+                                    <ul>
+                                        <li tal:repeat="member provider/assoc_members">
+                                            <a tal:attributes="href member/absolute_url" tal:content="member/title">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Other Associate Members: 
+                                    <td tal:content="structure provider/other_assoc_members">
+                                    </td>
+                                </tr>
+                            </table>
+                        </tal:block>
+                    </metal:content-core>
+                </metal:main>
 
 </body>
 </html>
