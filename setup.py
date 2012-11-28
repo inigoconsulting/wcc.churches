@@ -28,6 +28,8 @@ setup(name='wcc.churches',
           'setuptools',
           'plone.app.dexterity',
           'plone.namedfile [blobs]',
+          'collective.miscbehaviors',
+          'wcc.vocabularies'
           # -*- Extra requirements: -*-
       ],
       extras_require={
