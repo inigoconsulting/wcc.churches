@@ -22,6 +22,7 @@
      <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
       <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer"/>
       <element value="plone.multilingualbehavior.interfaces.IDexterityTranslatable"/>
+      <element value="collective.miscbehaviors.behavior.bodytext.IBodyText"/>
    </property>
 
   <!-- View information -->

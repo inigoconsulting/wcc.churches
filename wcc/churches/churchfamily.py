@@ -30,7 +30,8 @@ class IChurchFamily(form.Schema, IImageScaleTraversable):
     
     websites = schema.List(
         title=_(u'label_websites', u'Websites'),
-        value_type=schema.TextLine()
+        value_type=schema.TextLine(),
+        required=False,
     )
 
 

@@ -12,6 +12,19 @@
             tal:define="navroot context/@@plone_portal_state/navigation_root_url"
             tal:attributes="href string:${navroot}/++resource++wcc.churches/member.css"
             />
+        <style>
+            #churchmember-details {
+                width:100%;
+            }
+            #churchmember-details td, #churchmember-details th {
+                width:50%;
+            }
+            #churchmember-details th {
+                text-align:right;
+                padding-right:10px;
+            }
+
+        </style>
     </metal:block>
     </head>
 
@@ -19,37 +32,58 @@
 
 <body>
 
-<tal:comment tal:condition="nothing">
-    This is a sample view template. It will not be used for rendering the
-    content unless activated by creation of a view class with a matching name.
-    
-    Note that we're using Plone 4 macros. Replace them with Plone 3 macros
-    if needed.
-</tal:comment>
-
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
 
-    <div class="details">
-    <tal:block repeat="widget view/widgets/values">
-        <span class="field" tal:condition="python:widget.__name__ not in ('IBasic.title', 'IBasic.description', 'title', 'description',)">
-            <div tal:condition="python:widget.__name__ != 'text'">
-                <label tal:content="widget/label"/><b> : </b> 
-                <span tal:content="structure widget/render" />
-            </div>
-        </span>
+      <tal:block define="provider view/provider">
+      <table id="churchmember-details">
+          <tr>
+              <th tal:content="view/w/church_family/label"></th>
+              <td tal:content="structure view/w/church_family/render"></td>
+          </tr>
+          <tr>
+              <th tal:content="view/w/based_in/label"></th>
+              <td tal:content="structure view/w/based_in/render"></td>
+          </tr>
+          <tr>
+              <th tal:content="view/w/present_in/label"></th>
+              <td tal:content="structure view/w/present_in/render"></td>
+          </tr>
+          <tr>
+              <th tal:content="view/w/membership/label"></th>
+              <td tal:content="structure view/w/membership/render"></td>
+          </tr>
+          <tr>
+              <th tal:content="view/w/pastors/label"></th>
+              <td tal:content="structure view/w/pastors/render"></td>
+          </tr>
+          <tr>
+              <th tal:content="view/w/congregations/label"></th>
+              <td tal:content="structure view/w/congregations/render"></td>
+          </tr>
+          <tr>
+              <th tal:content="view/w/member_of/label"></th>
+              <td tal:content="structure view/w/member_of/render"></td>
+          </tr>
+          <tr>
+              <th tal:content="view/w/assoc_member_of/label"></th>
+              <td tal:content="structure view/w/assoc_member_of/render"></td>
+          </tr>
+          <tr tal:condition="provider/remoteUrl">
+              <th tal:content="view/w/remoteUrl/label"></th>
+              <td tal:content="structure view/w/remoteUrl/render"></td>
+          </tr>
+
+      </table>
+    <hr class="style-one"/>
+
+    <div id="churchtext" tal:content="structure context/text|nothing">
+
+    </div>
+
+    <hr class="style-one"/>
+
     </tal:block>
-    </div>
-
-    <hr class="style-one"/>
-
-    <div id="churchtext" tal:content="structure view/widgets/text/render">
-
-    </div>
-
-    <hr class="style-one"/>
-
-
   </metal:content-core>
 </metal:main>
 
