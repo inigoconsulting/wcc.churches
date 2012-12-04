@@ -8,6 +8,7 @@
   -->
 <object name="portal_types" meta_type="Plone Types Tool">
   <!-- -*- extra stuff goes here -*- -->
+  <object name="wcc.churches.region" meta_type="Dexterity FTI" />
   <object name="wcc.churches.churchmember" meta_type="Dexterity FTI" />
   <object name="wcc.churches.churchbody" meta_type="Dexterity FTI" />
   <object name="wcc.churches.churchfamily" meta_type="Dexterity FTI" />
