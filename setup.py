@@ -29,7 +29,8 @@ setup(name='wcc.churches',
           'plone.app.dexterity',
           'plone.namedfile [blobs]',
           'collective.miscbehaviors',
-          'wcc.vocabularies'
+          'wcc.vocabularies',
+          'collective.z3cform.datagridfield',
           # -*- Extra requirements: -*-
       ],
       extras_require={

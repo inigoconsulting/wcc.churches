@@ -21,6 +21,9 @@
   <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
+     <element value="collective.miscbehaviors.behavior.bodytext.IBodyText"/>
+     <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer"/>
+     <element value="plone.multilingualbehavior.interfaces.IDexterityTranslatable"/>
    </property>
 
   <!-- View information -->
