@@ -5,7 +5,7 @@ from zope import schema
 from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 
-from zope.interface import invariant, Invalid
+from zope.interface import invariant, Invalid, Interface
 
 from z3c.form import group, field
 
@@ -19,7 +19,8 @@ from z3c.relationfield.schema import RelationList, RelationChoice
 from plone.formwidget.contenttree import ObjPathSourceBinder
 
 from wcc.churches import MessageFactory as _
-
+from wcc.churches.churchbody import IChurchBody
+from wcc.churches.country import ICountry
 
 # Interface class; used to define content-type schema.
 
@@ -42,7 +43,38 @@ class IRegion(form.Schema, IImageScaleTraversable):
 # region_templates.
 # Template filenames should be all lower case.
 
+class IRegionDataProvider(Interface):
+    pass
+
+class RegionDataProvider(grok.Adapter):
+    grok.context(IRegion)
+    grok.implements(IRegionDataProvider)
+
+    def __init__(self, context):
+        self.context = context
+
+    def churchbodies(self):
+        result = []
+        for obj in self.context.values():
+            if IChurchBody.providedBy(obj):
+                result.append(obj)
+        return result
+
+    def ecunemical_orgs(self):
+        return self.churchbodies()
+
+    def countries(self):
+        result = []
+        for obj in self.context.values():
+            if ICountry.providedBy(obj):
+                result.append(obj)
+        return result
+
+
 class Index(dexterity.DisplayForm):
     grok.context(IRegion)
     grok.require('zope2.View')
     grok.name('view')
+
+    def provider(self):
+        return IRegionDataProvider(self.context)
