@@ -138,7 +138,7 @@ class Index(dexterity.DisplayForm):
 
         # religion
         religions = getattr(self.context, 'religions', [])
-        rows = ['<tr><th>%s</th><td>%s</td></li>' % (i['religion'],
+        rows = ['<tr><th>%s</th><td>%s</td></tr>' % (i['religion'],
             i['percentage']) for i in religions]
         result.append({
             'label': _(u'Religions'),
@@ -146,8 +146,8 @@ class Index(dexterity.DisplayForm):
             '<table id="country-religions-table">%s</table>' % ''.join(rows)
         })
 
-        denominations = getattr(self.context, 'denominations', [])
-        rows = ['<tr><th>%s</th><td>%s</td></li>' % (i['denomination'],
+        denominations = getattr(self.context, 'christianity_denominations', [])
+        rows = ['<tr><th>%s</th><td>%s</td></tr>' % (i['denomination'],
             i['count']) for i in denominations]
         result.append({
             'label': _(u'Denominations'),
