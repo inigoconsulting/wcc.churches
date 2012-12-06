@@ -5,23 +5,45 @@
       lang="en"
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="wcc.churches">
+      <head>
+            <metal:block fill-slot="javascript_head_slot">
+                <metal:use use-macro="context/@@collectivegeo-macros/openlayers" />
+
+                <script tal:content="structure view/map_state">
+                </script>
+            </metal:block>
+            <metal:block fill-slot="style_slot">
+                <style>
+                    #country-cgmap {
+                        width:300px;
+                        height:300px;
+                        float:right;
+                    }
+                </style>
+            </metal:block>
+      </head>
 <body>
 
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
 
-    <table id="country-stats-table">
-        <tal:block repeat="widget view/table_widgets">
-        <tr>
-            <th tal:content="widget/label" ></th>
-            <td tal:content="structure widget/render" ></td>
-        </tr>
-    </tal:block>
-</table>
+      <tal:block define="cgmap view/cgmap">
+          <metal:use use-macro="context/@@collectivegeo-macros/map-widget" />
+      </tal:block>
 
-    <div tal:content="structure view/w/IBodyText.text/render">
+      <table id="country-stats-table">
+          <tal:block repeat="widget view/table_widgets">
+              <tr>
+                  <th tal:content="widget/label" ></th>
+                  <td tal:content="structure widget/render" ></td>
+              </tr>
+          </tal:block>
+      </table>
 
-    </div>
+
+      <div tal:content="structure view/w/IBodyText.text/render">
+
+      </div>
 
   </metal:content-core>
 </metal:main>

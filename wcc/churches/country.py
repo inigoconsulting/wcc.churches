@@ -21,6 +21,8 @@ from plone.formwidget.contenttree import ObjPathSourceBinder
 from wcc.churches import MessageFactory as _
 from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
 from wcc.vocabularies.countries import lookup_capital
+from geopy import geocoders
+from collective.geo.mapwidget.browser.widget import MapWidget
 
 # Interface class; used to define content-type schema.
 
@@ -153,3 +155,25 @@ class Index(dexterity.DisplayForm):
             '<table id="country-denominations-table">%s</table>' % ''.join(rows)
         })
         return result
+
+    def map_state(self):
+        country = self.context.title
+        geo = geocoders.GeoNames()  
+        location = geo.geocode(country, False)
+        
+        if not location:
+            return ''
+
+        place, (lat, lng) = location[0]
+        return '''
+        cgmap.state['country-cgmap'] = {
+            lon : %(lon)s,
+            lat : %(lat)s,
+            zoom : 4
+        }
+        ''' % {'lon': lng, 'lat': lat}
+
+    def cgmap(self):
+        cgmap = MapWidget(self, self.request, self.context)
+        cgmap.mapid = 'country-cgmap'
+        return cgmap

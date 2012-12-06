@@ -30,6 +30,7 @@ setup(name='wcc.churches',
           'plone.namedfile [blobs]',
           'collective.miscbehaviors',
           'wcc.vocabularies',
+          'collective.geo.bundle',
           'collective.z3cform.datagridfield',
           # -*- Extra requirements: -*-
       ],
