@@ -20,29 +20,30 @@ from plone.formwidget.contenttree import ObjPathSourceBinder
 
 from wcc.churches import MessageFactory as _
 from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
+from wcc.vocabularies.countries import lookup_capital
 
 # Interface class; used to define content-type schema.
 
 class IReligionPercentage(Interface):
 
     religion = schema.Choice(
-        title=u'Religion',
+        title=_(u'Religion'),
         vocabulary='wcc.vocabulary.religionfollower'
     )
 
     percentage = schema.Float(
-        title=u'Percentage'
+        title=_(u'Percentage')
     )
 
 class IDenominationCount(Interface):
 
     denomination = schema.Choice(
-        title=u'Denomination',
+        title=_(u'Denomination'),
         vocabulary='wcc.vocabulary.denomination'
     )
 
     count = schema.Int(
-        title=u'Count'
+        title=_(u'Count')
     )
 
 class ICountry(form.Schema, IImageScaleTraversable):
@@ -73,14 +74,20 @@ class ICountry(form.Schema, IImageScaleTraversable):
         required=False,
     )
 
-    gpi_percapita = schema.TextLine(
+    gni_percapita = schema.TextLine(
         title=_(u'GNI per capita'),
         required=False
     )
 
+    classification = schema.Choice(
+        title=_(u'Classification'),
+        required=False,
+        vocabulary='wcc.vocabulary.classification'
+    )
+
     languages = schema.List(
         title=_(u'Languages'),
-        value_type=schema.Choice(vocabulary='wcc.vocabulary.language'),
+        value_type=schema.TextLine(),
         required=False,
     )
 
@@ -105,3 +112,44 @@ class Index(dexterity.DisplayForm):
     grok.context(ICountry)
     grok.require('zope2.View')
     grok.name('view')
+
+    def table_widgets(self):
+        result = []
+        for i in ['population', 'surface_area']:
+            widget = self.w[i]
+            result.append({
+                'label': widget.label,
+                'render': widget.render()
+            })
+        result.append({
+            'label': _(u'Capital'),
+            'render': lookup_capital(self.context.country_code)
+        })
+        for i in ['gni_percapita',
+                  'classification',
+                  'languages']:
+            widget = self.w[i]
+            result.append({
+                'label': widget.label,
+                'render': widget.render(),
+            })
+
+        # religion
+        religions = getattr(self.context, 'religions', [])
+        rows = ['<tr><th>%s</th><td>%s</td></li>' % (i['religion'],
+            i['percentage']) for i in religions]
+        result.append({
+            'label': _(u'Religions'),
+            'render': 
+            '<table id="country-religions-table">%s</table>' % ''.join(rows)
+        })
+
+        denominations = getattr(self.context, 'denominations', [])
+        rows = ['<tr><th>%s</th><td></td></li>' % (i['denomination'],
+            i['count']) for i in denominations]
+        result.append({
+            'label': _(u'Denominations'),
+            'render': 
+            '<table id="country-denominations-table">%s</table>' % ''.join(rows)
+        })
+        return result
