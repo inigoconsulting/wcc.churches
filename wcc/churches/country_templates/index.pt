@@ -40,7 +40,7 @@
           </tal:block>
       </table>
 
-
+      <div class="visualClear">&nbsp;</div>
       <div tal:content="structure view/w/IBodyText.text/render">
 
       </div>

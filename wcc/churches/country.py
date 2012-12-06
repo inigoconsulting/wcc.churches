@@ -147,7 +147,7 @@ class Index(dexterity.DisplayForm):
         })
 
         denominations = getattr(self.context, 'denominations', [])
-        rows = ['<tr><th>%s</th><td></td></li>' % (i['denomination'],
+        rows = ['<tr><th>%s</th><td>%s</td></li>' % (i['denomination'],
             i['count']) for i in denominations]
         result.append({
             'label': _(u'Denominations'),
