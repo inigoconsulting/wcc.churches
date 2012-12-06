@@ -15,6 +15,8 @@
         <style>
             #churchmember-details {
                 width:100%;
+                font-size: 14px;
+                font-family: Verdana, Helvetica, Arial, sans-serif;
             }
             #churchmember-details td, #churchmember-details th {
                 width:50%;
@@ -22,7 +24,19 @@
             #churchmember-details th {
                 text-align:right;
                 padding-right:10px;
+                font-weight: normal;
             }
+            #churchmember-details a {
+                color: #B01 !important;
+            }
+
+            #churchtext p.bodytext {
+                font-size: 14px;
+                color: #221B1B;
+                font-weight: normal;
+                font-family: Verdana, Helvetica, Arial, sans-serif;
+            }
+
 
         </style>
     </metal:block>
@@ -38,40 +52,58 @@
       <tal:block define="provider view/provider">
       <table id="churchmember-details">
           <tr>
-              <th tal:content="view/w/church_family/label"></th>
+              <th>
+              <span tal:content="view/w/church_family/label"></span> :
+              </th>
               <td tal:content="structure view/w/church_family/render"></td>
           </tr>
           <tr>
-              <th tal:content="view/w/based_in/label"></th>
+              <th>
+              <span tal:content="view/w/based_in/label"></span> :
+              </th>
               <td tal:content="structure view/w/based_in/render"></td>
           </tr>
           <tr>
-              <th tal:content="view/w/present_in/label"></th>
+              <th>
+              <span tal:content="view/w/present_in/label"></span> :
+              </th>
               <td tal:content="structure view/w/present_in/render"></td>
           </tr>
           <tr>
-              <th tal:content="view/w/membership/label"></th>
+              <th>
+              <span tal:content="view/w/membership/label"></span> :
+              </th>
               <td tal:content="structure view/w/membership/render"></td>
           </tr>
           <tr>
-              <th tal:content="view/w/pastors/label"></th>
+              <th>
+              <span tal:content="view/w/pastors/label"></span> :
+              </th>
               <td tal:content="structure view/w/pastors/render"></td>
           </tr>
           <tr>
-              <th tal:content="view/w/congregations/label"></th>
+              <th>
+              <span tal:content="view/w/congregations/label"></span> :
+              </th>
               <td tal:content="structure view/w/congregations/render"></td>
           </tr>
           <tr>
-              <th tal:content="view/w/member_of/label"></th>
+              <th>
+              <span tal:content="view/w/member_of/label"></span> :
+              </th>
               <td tal:content="structure view/w/member_of/render"></td>
           </tr>
           <tr>
-              <th tal:content="view/w/assoc_member_of/label"></th>
+              <th>
+              <span tal:content="view/w/assoc_member_of/label"></span> :
+              </th>
               <td tal:content="structure view/w/assoc_member_of/render"></td>
           </tr>
           <tr tal:condition="provider/remoteUrl">
-              <th tal:content="view/w/remoteUrl/label"></th>
-              <td tal:content="structure view/w/remoteUrl/render"></td>
+              <th>
+              <span tal:content="view/w/remoteUrl/label"></span> :  
+              </th>
+              <a><td tal:content="structure view/w/remoteUrl/render"></td></a>
           </tr>
 
       </table>
