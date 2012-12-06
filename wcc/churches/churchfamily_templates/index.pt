@@ -7,10 +7,11 @@
       i18n:domain="wcc.churches">
 
       <metal:slot fill-slot="style_slot">
-        <style>
-            #churchfamily-membertable { width: 100%; }
-            #churchfamily-membertable td { width: 50%; vertical-align:top; }
-        </style>
+<link rel="stylesheet" type="text/css" 
+            tal:define="navroot context/@@plone_portal_state/navigation_root_url"
+            tal:attributes="href
+            string:${navroot}/++resource++wcc.churches/family.css"
+            />
       </metal:slot>
 <body>
 
@@ -55,6 +56,9 @@
             </tr>
         </table>
     </div>
+
+    <hr />
+
 </tal:block>
   </metal:content-core>
 </metal:main>
