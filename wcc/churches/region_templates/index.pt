@@ -5,6 +5,26 @@
       lang="en"
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="wcc.churches">
+
+      <head>
+<metal:block fill-slot="style_slot">
+        <style>
+
+            div.row {
+
+                margin-bottom: 20px;
+            }
+            #content-core hr{
+                margin-bottom: 20px;
+
+            }
+
+        </style>
+    </metal:block>
+    </head>
+
+
+
 <body>
 
 <metal:main fill-slot="content-core">
@@ -33,6 +53,8 @@
                 </div>
             </div>
         </div>
+
+        <hr/>
   </metal:content-core>
 </metal:main>
 
