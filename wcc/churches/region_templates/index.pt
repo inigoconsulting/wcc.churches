@@ -8,18 +8,11 @@
 
       <head>
 <metal:block fill-slot="style_slot">
-        <style>
-
-            div.row {
-
-                margin-bottom: 20px;
-            }
-            #content-core hr{
-                margin-bottom: 20px;
-
-            }
-
-        </style>
+            <link rel="stylesheet" type="text/css" 
+            tal:define="navroot context/@@plone_portal_state/navigation_root_url"
+            tal:attributes="href
+            string:${navroot}/++resource++wcc.churches/region.css"
+            />
     </metal:block>
     </head>
 
@@ -33,23 +26,23 @@
             <div class="cell width-3:4 position-0" tal:content="structure view/w/IBodyText.text/render">
             </div>
             <div class="cell width-1:4 position-3:4">
+                <div>
+                    <div id="region-ecunemicalorgs">
                 <h3 i18n:translate="label_regional_ecumenical_organizations">
                     Regional Ecumenical Organizations
                 </h3>
-                <div>
-                    <ul id="region-ecunemicalorgs">
-                        <li tal:repeat="org provider/ecunemical_orgs">
+                        <div tal:repeat="org provider/ecunemical_orgs">
                             <a tal:attributes="href org/absolute_url" tal:content="org/title"></a>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
-                <h3 i18n:translate="label_countries">Countries</h3>
                 <div>
-                    <ul id="region-countries">
-                        <li tal:repeat="country provider/countries">
+                    <div id="region-countries">
+                    <h3 i18n:translate="label_countries">Countries</h3>
+                        <div tal:repeat="country provider/countries">
                             <a tal:attributes="href country/absolute_url" tal:content="country/title"></a>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

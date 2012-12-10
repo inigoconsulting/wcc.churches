@@ -12,33 +12,6 @@
             tal:define="navroot context/@@plone_portal_state/navigation_root_url"
             tal:attributes="href string:${navroot}/++resource++wcc.churches/member.css"
             />
-        <style>
-            #churchmember-details {
-                width:100%;
-                font-size: 14px;
-                font-family: Verdana, Helvetica, Arial, sans-serif;
-            }
-            #churchmember-details td, #churchmember-details th {
-                width:50%;
-            }
-            #churchmember-details th {
-                text-align:right;
-                padding-right:10px;
-                font-weight: normal;
-            }
-            #churchmember-details a {
-                color: #B01 !important;
-            }
-
-            #churchtext p.bodytext {
-                font-size: 14px;
-                color: #221B1B;
-                font-weight: normal;
-                font-family: Verdana, Helvetica, Arial, sans-serif;
-            }
-
-
-        </style>
     </metal:block>
     </head>
 

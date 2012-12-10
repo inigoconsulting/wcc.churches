@@ -1,0 +1,39 @@
+div.row {
+
+    margin-bottom: 20px;
+
+
+}
+
+#content-core .row div.cell a, a:hover{
+
+    font-size: 12px;
+    color: #B01 !important;
+
+}
+
+#content-core #region-countries {
+    margin-top: 20px;
+
+
+}
+
+#content-core {
+    
+    font-family:Verdana, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+
+}
+#content-core hr{
+    margin-bottom: 20px;
+
+}
+#content-core h3{
+
+    font-family:Corbel, Frutiger, 'Frutiger 45', 'Lucida Sans Unicode', Verdana, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: black;
+}
+
+
+
