@@ -1,0 +1,41 @@
+#churchbody-memberdetails {
+    margin-top: 20px;
+}
+
+div #content-core{
+
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0 0 18px;
+    color: #221B1B;
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+b.churchbody-label {
+    font-size: 18px;
+}
+
+table#churchbody-memberdetails th {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+table#churchbody-memberdetails td {
+    font-size: 14px;
+    padding: 5px;
+}
+#churchbody-memberdetails {
+           width:100%; 
+        }
+
+        #churchbody-memberdetails th {
+            text-align:right;
+            padding-right:10px;
+            width:200px;
+        }
+
+        #churchbody-memberdetails tr {
+            border-top:1px solid #ccc;
+            vertical-align:top;
+        }
+

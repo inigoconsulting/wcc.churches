@@ -13,13 +13,10 @@
                 </script>
             </metal:block>
             <metal:block fill-slot="style_slot">
-                <style>
-                    #country-cgmap {
-                        width:300px;
-                        height:300px;
-                        float:right;
-                    }
-                </style>
+            <link rel="stylesheet" type="text/css" 
+            tal:define="navroot context/@@plone_portal_state/navigation_root_url"
+            tal:attributes="href string:${navroot}/++resource++wcc.churches/country.css"
+            />
             </metal:block>
       </head>
 <body>
@@ -34,16 +31,22 @@
       <table id="country-stats-table">
           <tal:block repeat="widget view/table_widgets">
               <tr>
-                  <th tal:content="widget/label" ></th>
+                <th>
+                  <span tal:content="widget/label" ></span> : 
+                </th>
                   <td tal:content="structure widget/render" ></td>
               </tr>
           </tal:block>
       </table>
 
+      <hr />
+
       <div class="visualClear">&nbsp;</div>
       <div tal:content="structure view/w/IBodyText.text/render">
 
       </div>
+
+      <hr id="bottom-line" />
 
   </metal:content-core>
 </metal:main>
