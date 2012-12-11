@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" 
             tal:define="navroot context/@@plone_portal_state/navigation_root_url"
             tal:attributes="href
-            string:${navroot}/++resource++wcc.churches/body.css"
+            string:${navroot}/++resource++wcc.churches/churchbody.css"
             />
     </metal:slot>
     <body>

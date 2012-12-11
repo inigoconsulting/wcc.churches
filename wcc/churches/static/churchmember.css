@@ -1,0 +1,18 @@
+#churchmember-details {
+    width:60%;
+}
+
+#churchmember-details td, #churchmember-details th {
+    width:50%;
+}
+
+#churchmember-details th {
+    text-align:right;
+    padding-right:10px;
+    font-weight: normal;
+}
+
+#churchmember-bodytext {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}

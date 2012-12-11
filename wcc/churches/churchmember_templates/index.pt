@@ -10,7 +10,7 @@
     <metal:block fill-slot="style_slot">
         <link rel="stylesheet" type="text/css" 
             tal:define="navroot context/@@plone_portal_state/navigation_root_url"
-            tal:attributes="href string:${navroot}/++resource++wcc.churches/member.css"
+            tal:attributes="href string:${navroot}/++resource++wcc.churches/churchmember.css"
             />
     </metal:block>
     </head>
@@ -80,13 +80,12 @@
           </tr>
 
       </table>
-    <hr class="style-one"/>
 
-    <div id="churchtext" tal:content="structure context/text|nothing">
+      <div id="churchmember-bodytext" tal:content="structure context/text|nothing" 
+          tal:condition="context/text|nothing">
 
-    </div>
+      </div>
 
-    <hr class="style-one"/>
 
     </tal:block>
   </metal:content-core>

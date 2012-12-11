@@ -1,0 +1,34 @@
+#churchbody-memberdetails {
+    margin-top: 20px;
+}
+
+b.churchbody-label {
+    font-size: 18px;
+}
+
+table#churchbody-memberdetails th {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+table#churchbody-memberdetails td {
+    padding: 5px;
+    margin:0;
+}
+
+#churchbody-memberdetails {
+    width:100%; 
+}
+
+#churchbody-memberdetails th {
+    text-align:right;
+    padding-right:10px;
+    width:200px;
+}
+
+#churchbody-memberdetails tr {
+    border-top:1px solid #ccc;
+    vertical-align:top;
+}
+
