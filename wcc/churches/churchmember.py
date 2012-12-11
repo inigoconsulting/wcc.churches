@@ -19,7 +19,7 @@ from z3c.relationfield.schema import RelationList, RelationChoice, Relation
 from plone.formwidget.contenttree import ObjPathSourceBinder
 
 from wcc.churches import MessageFactory as _
-
+from plone.indexer.decorator import indexer
 
 # Interface class; used to define content-type schema.
 

@@ -26,27 +26,6 @@ from collective.geo.mapwidget.browser.widget import MapWidget
 from wcc.churches.backref import back_references
 # Interface class; used to define content-type schema.
 
-class IReligionPercentage(Interface):
-
-    religion = schema.Choice(
-        title=_(u'Religion'),
-        vocabulary='wcc.vocabulary.religionfollower'
-    )
-
-    percentage = schema.Float(
-        title=_(u'Percentage')
-    )
-
-class IDenominationCount(Interface):
-
-    denomination = schema.Choice(
-        title=_(u'Denomination'),
-        vocabulary='wcc.vocabulary.denomination'
-    )
-
-    count = schema.Int(
-        title=_(u'Count')
-    )
 
 class ICountry(form.Schema, IImageScaleTraversable):
     """
@@ -64,45 +43,6 @@ class ICountry(form.Schema, IImageScaleTraversable):
         description=_(u'ISO 3166-1 alpha-2 code for this country'),
         required=True,
         vocabulary='wcc.vocabulary.country'
-    )
-
-    population = schema.Int(
-        title=_(u'Population'),
-        required=False
-    )
-
-    surface_area = schema.Int(
-        title=_(u'Surface area (square KM)'),
-        required=False,
-    )
-
-    gni_percapita = schema.TextLine(
-        title=_(u'GNI per capita'),
-        required=False
-    )
-
-    classification = schema.Choice(
-        title=_(u'Classification'),
-        required=False,
-        vocabulary='wcc.vocabulary.classification'
-    )
-
-    languages = schema.List(
-        title=_(u'Languages'),
-        value_type=schema.TextLine(),
-        required=False,
-    )
-
-    form.widget(religions=DataGridFieldFactory)
-    religions = schema.List(
-        title=_(u'Religions'),
-        value_type=DictRow(schema=IReligionPercentage)
-    )
-
-    form.widget(christianity_denominations=DataGridFieldFactory)
-    christianity_denominations = schema.List(
-        title=_(u'Christianity'),
-        value_type=DictRow(schema=IDenominationCount)
     )
 
 # View class
@@ -137,6 +77,18 @@ class CountryDataProvider(grok.Adapter):
             ):
             result.append(brain.getObject())
         return result
+
+    def based_churchmembers(self):
+        churchmembers = self.churchmembers()
+        return [c for c in churchmembers if (
+            self.context.country_code == c.based_in)]
+
+    def present_churchmembers(self):
+        churchmembers = self.churchmembers()
+        return [c for c in churchmembers if (
+            self.context.country_code in c.present_in)]
+
+
 
 
 class Index(dexterity.DisplayForm):

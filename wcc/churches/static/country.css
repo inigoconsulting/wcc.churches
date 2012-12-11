@@ -3,26 +3,9 @@
     height:300px;
     float:right;
 }
-table#country-stats-table th {
-    text-align: right;
-    padding-right: 10px;
-    font-weight: normal;
-}
-div#content-core {
-    font-family: Verdana, Helvetica, Arial, sans-serif;
-    font-size: 14px;
-}
-hr {
-    margin-top: 70px;
-}
-hr#bottom-line {
 
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-#form-widgets-IBodyText-text h3 {
-    font-size: 16px;
-    font-family: Corbel, Frutiger, 'Frutiger 45', 'Lucida Sans Unicode', Verdana, Helvetica, Arial, sans-serif;
-    font-weight: bold;
-
+#country-bodytext {
+    border-top:1px solid #ccc;
+    padding: 20px 0;
+    border-bottom:1px solid #ccc;
 }

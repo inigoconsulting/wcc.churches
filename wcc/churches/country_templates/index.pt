@@ -29,25 +29,6 @@
           <metal:use use-macro="context/@@collectivegeo-macros/map-widget" />
       </tal:block>
 
-      <table id="country-stats-table">
-          <tal:block repeat="widget view/table_widgets">
-              <tr>
-                <th>
-                  <span tal:content="widget/label" ></span> : 
-                </th>
-                  <td tal:content="structure widget/render" ></td>
-              </tr>
-          </tal:block>
-      </table>
-
-      <hr />
-
-      <div class="visualClear">&nbsp;</div>
-      <div tal:content="structure view/w/IBodyText.text/render">
-
-      </div>
-
-
       <h4>Ecunemical Organizations and Councils</h4>
       <div id="country-ecunemicalorgs">
           <ul>
@@ -59,7 +40,34 @@
           </ul>
       </div>
 
-      <hr id="bottom-line" />
+      <h4>WCC member churches based in <tal:block replace="context/title"/></h4>
+      <div id="country-churchmembers">
+          <ul>
+            <li tal:repeat="org provider/based_churchmembers">
+                <a tal:attributes="href org/absolute_url"
+                    tal:content="org/title">
+                </a>
+            </li>
+          </ul>
+      </div>
+
+      <h4>WCC member churches present in <tal:block replace="context/title"/></h4>
+      <div id="country-churchmembers">
+          <ul>
+            <li tal:repeat="org provider/present_churchmembers">
+                <a tal:attributes="href org/absolute_url"
+                    tal:content="org/title">
+                </a>
+            </li>
+          </ul>
+      </div>
+
+      <div class="visualClear">&nbsp;</div>
+
+      <div id="country-bodytext" tal:content="structure view/w/IBodyText.text/render">
+
+      </div>
+
         </tal:block>
   </metal:content-core>
 </metal:main>

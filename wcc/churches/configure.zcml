@@ -26,6 +26,8 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <adapter name="countries" factory=".indexers.churchmember_countries" />
+
   <!-- -*- extra stuff goes here -*- -->
 
 </configure>
