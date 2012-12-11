@@ -24,6 +24,7 @@
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
 
+      <tal:block define="provider view/provider">
       <tal:block define="cgmap view/cgmap">
           <metal:use use-macro="context/@@collectivegeo-macros/map-widget" />
       </tal:block>
@@ -46,8 +47,20 @@
 
       </div>
 
-      <hr id="bottom-line" />
 
+      <h4>Ecunemical Organizations and Councils</h4>
+      <div id="country-ecunemicalorgs">
+          <ul>
+            <li tal:repeat="org provider/ecumenical_orgs">
+                <a tal:attributes="href org/absolute_url"
+                    tal:content="org/title">
+                </a>
+            </li>
+          </ul>
+      </div>
+
+      <hr id="bottom-line" />
+        </tal:block>
   </metal:content-core>
 </metal:main>
 

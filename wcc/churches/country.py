@@ -23,7 +23,7 @@ from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
 from wcc.vocabularies.countries import lookup_capital
 from geopy import geocoders
 from collective.geo.mapwidget.browser.widget import MapWidget
-
+from wcc.churches.backref import back_references
 # Interface class; used to define content-type schema.
 
 class IReligionPercentage(Interface):
@@ -110,13 +110,47 @@ class ICountry(form.Schema, IImageScaleTraversable):
 # country_templates.
 # Template filenames should be all lower case.
 
+class ICountryDataProvider(Interface):
+    pass
+
+class CountryDataProvider(grok.Adapter):
+    grok.implements(ICountryDataProvider)
+    grok.context(ICountry)
+
+    def churchbodies(self):
+        result = []
+        for brain in self.context.portal_catalog(
+                portal_type='wcc.churches.churchbody',
+                countries=self.context.country_code
+                ):
+            result.append(brain.getObject())
+        return result
+
+    def ecumenical_orgs(self):
+        return self.churchbodies()
+
+    def churchmembers(self):
+        result = []
+        for brain in self.context.portal_catalog(
+                portal_type="wcc.churches.churchmember",
+                countries=self.context.country_code
+            ):
+            result.append(brain.getObject())
+        return result
+
+
 class Index(dexterity.DisplayForm):
     grok.context(ICountry)
     grok.require('zope2.View')
     grok.name('view')
 
+    def provider(self):
+        return ICountryDataProvider(self.context)
+
     def table_widgets(self):
         result = []
+        provider = self.provider
+
         for i in ['population', 'surface_area']:
             widget = self.w[i]
             result.append({
