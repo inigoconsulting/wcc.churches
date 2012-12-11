@@ -12,6 +12,7 @@
 
   <!-- Grok the package to initialise schema interfaces and content classes -->
   <grok:grok package="." />
+  <include package=".behavior"/>
   
   <i18n:registerTranslations directory="locales" />
 
