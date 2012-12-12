@@ -28,12 +28,17 @@
             <div class="cell width-1:4 position-3:4">
                 <div>
                     <div id="region-ecunemicalorgs">
-                <h3 i18n:translate="label_regional_ecumenical_organizations">
-                    Regional Ecumenical Organizations
-                </h3>
-                        <div tal:repeat="org provider/ecunemical_orgs">
+                        <h3 i18n:translate="label_regional_ecumenical_organizations">
+                            Regional Ecumenical Organizations
+                        </h3>
+                        <div tal:repeat="org provider/regional_churchbodies">
                             <a tal:attributes="href org/absolute_url" tal:content="org/title"></a>
                         </div>
+                        <h4>Sub Regional Fellowship of Council and Churches</h4>
+                        <div tal:repeat="org provider/subregional_churchbodies">
+                            <a tal:attributes="href org/absolute_url" tal:content="org/title"></a>
+                        </div>
+
                     </div>
                 </div>
                 <div>

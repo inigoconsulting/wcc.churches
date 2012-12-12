@@ -21,6 +21,9 @@ from plone.formwidget.contenttree import ObjPathSourceBinder
 from wcc.churches import MessageFactory as _
 from wcc.churches.churchbody import IChurchBody
 from wcc.churches.country import ICountry
+from zope.intid.interfaces import IIntIds
+from zope.component import getUtility
+from zope.security import checkPermission
 
 # Interface class; used to define content-type schema.
 
@@ -35,8 +38,11 @@ class IRegion(form.Schema, IImageScaleTraversable):
     # models/region.xml to define the content type
     # and add directives here as necessary.
 
-    form.model("models/region.xml")
-
+    subregional_churchbodies = schema.List(
+        title=_(u'Subregional Bodies'),
+        value_type=schema.Choice(vocabulary='wcc.churches.regional_churchbodies'),
+        required=False
+    )
 
 # View class
 # The view will automatically use a similarly named template in
@@ -55,13 +61,31 @@ class RegionDataProvider(grok.Adapter):
 
     def churchbodies(self):
         result = []
+        for brain in self.context.portal_catalog(
+                    portal_type='wcc.churches.churchbody',
+                    regions=self.context.getId()
+                ):
+                result.append(brain.getObject())
         for obj in self.context.values():
-            if IChurchBody.providedBy(obj):
+            if IChurchBody.providedBy(obj) and obj not in result:
                 result.append(obj)
         return result
 
-    def ecunemical_orgs(self):
-        return self.churchbodies()
+    def regional_churchbodies(self):
+        intids = getUtility(IIntIds)
+        return [cb for cb in self.churchbodies() if (
+                    intids.getId(cb) not in
+                    self.context.subregional_churchbodies)
+                ]
+
+    def subregional_churchbodies(self):
+        intids = getUtility(IIntIds)
+        result = []
+        for i in self.context.subregional_churchbodies:
+            obj = intids.queryObject(i)
+            if obj is not None and checkPermission('zope2.View', obj):
+                result.append(obj)
+        return result
 
     def countries(self):
         result = []

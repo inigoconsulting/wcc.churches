@@ -5,6 +5,20 @@
         <index name="countries"
             description="Countries index"
             enabled="True"
-            friendlyName="Counties"/>
+            friendlyName="Countries"/>
+        <index name="regions"
+            description="Regions index"
+            enabled="True"
+            friendlyName="Regions"/>
     </topic_indexes>
+    <topic_metadata>
+        <metadata name="countries"
+            description=""
+            enabled="True"
+            friendlyName="Countries"/>
+        <metadata name="regions"
+            description=""
+            enabled="True"
+            friendlyName="Regions"/>
+    </topic_metadata>
 </atcttool>

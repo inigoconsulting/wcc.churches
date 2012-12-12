@@ -54,7 +54,7 @@ class IChurchBody(form.Schema, IBasic, IImageScaleTraversable):
         required=False,
     )
 
-
+    
     member_of = RelationChoice(
             title=_(u'label_member_of', u"Member Of"),
             source=ObjPathSourceBinder(object_provides='wcc.churches.churchfamily.IChurchFamily'),
