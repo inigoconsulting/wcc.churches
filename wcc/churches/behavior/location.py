@@ -14,14 +14,6 @@ from wcc.churches import MessageFactory as _
 
 class ILocationTags(form.Schema):
 
-    regions = schema.List(
-        title=_(u"Related Regions"),
-        value_type=schema.Choice(
-            vocabulary="wcc.churches.region"
-        ),
-        required=False
-    )
-
     countries = schema.List(
         title=_(u"Related Countries"),
         value_type = schema.Choice(

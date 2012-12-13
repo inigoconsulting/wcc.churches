@@ -26,19 +26,23 @@
             <div class="cell width-3:4 position-0" tal:content="structure view/w/IBodyText.text/render">
             </div>
             <div class="cell width-1:4 position-3:4">
-                <div>
+                <div tal:define="regional_churchbodies provider/regional_churchbodies">
                     <div id="region-ecunemicalorgs">
+                        <tal:block condition="regional_churchbodies">
                         <h3 i18n:translate="label_regional_ecumenical_organizations">
                             Regional Ecumenical Organizations
                         </h3>
-                        <div tal:repeat="org provider/regional_churchbodies">
+                        <div tal:repeat="org regional_churchbodies">
                             <a tal:attributes="href org/absolute_url" tal:content="org/title"></a>
                         </div>
-                        <h4>Sub Regional Fellowship of Council and Churches</h4>
-                        <div tal:repeat="org provider/subregional_churchbodies">
-                            <a tal:attributes="href org/absolute_url" tal:content="org/title"></a>
+                        </tal:block>
+                        <tal:block repeat="container provider/subregional_churchbodies">
+                        <h4 tal:content="container/title"></h4>
+                        <div tal:repeat="org container/churchbodies">
+                            <a tal:attributes="href org/absolute_url" 
+                                tal:content="org/title"></a>
                         </div>
-
+                        </tal:block>
                     </div>
                 </div>
                 <div>
