@@ -14,6 +14,7 @@
   <property name="allowed_content_types">
       <element value="wcc.churches.country"/>
       <element value="wcc.churches.churchbody"/>
+      <element value="Folder"/>
   </property>
   <property name="allow_discussion">False</property>
 
