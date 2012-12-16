@@ -23,7 +23,7 @@
      <element value="collective.miscbehaviors.behavior.bodytext.IBodyText"/>
      <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer"/>
      <element value="plone.multilingualbehavior.interfaces.IDexterityTranslatable"/>
-     <element value="wcc.churches.behavior.location.ILocationTags"/>
+     <element value="wcc.common.behavior.location.ILocationTags"/>
    </property>
 
   <!-- View information -->

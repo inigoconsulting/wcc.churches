@@ -21,7 +21,7 @@
       <element value="plone.app.content.interfaces.INameFromTitle" />
       <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer"/>
       <element value="plone.multilingualbehavior.interfaces.IDexterityTranslatable"/>
-      <element value="wcc.churches.behavior.location.ILocationTags"/>
+      <element value="wcc.common.behavior.location.ILocationTags"/>
      <element value="plone.app.dexterity.behaviors.metadata.IOwnership"/>
      <element value="plone.app.dexterity.behaviors.metadata.IPublication"/>
      <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
