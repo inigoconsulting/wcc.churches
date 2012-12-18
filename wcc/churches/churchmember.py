@@ -28,6 +28,11 @@ class IChurchMember(form.Schema, IImageScaleTraversable):
     Church Member
     """
 
+    church_image = NamedBlobImage(
+            title=_(u'Image'),
+            required=False,
+            )
+
     church_family = RelationChoice(
             title=_(u'Church Family'),
             source=ObjPathSourceBinder(object_provides='wcc.churches.churchfamily.IChurchFamily'),
