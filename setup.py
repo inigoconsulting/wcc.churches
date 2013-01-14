@@ -5,9 +5,9 @@ version = '1.0'
 
 setup(name='wcc.churches',
       version=version,
-      description="WCC Churches Information",
+      description="",
       long_description=open("README.rst").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+                       open(os.path.join("docs", "HISTORY.rst")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
@@ -18,7 +18,7 @@ setup(name='wcc.churches',
       keywords='',
       author='Inigo Consulting',
       author_email='team@inigo-tech.com',
-      url='https://github.com/inigoconsulting/wcc.churches',
+      url='http://github.com/inigoconsulting/',
       license='gpl',
       packages=find_packages(),
       namespace_packages=['wcc'],
@@ -28,6 +28,7 @@ setup(name='wcc.churches',
           'setuptools',
           'plone.app.dexterity',
           'plone.namedfile [blobs]',
+          'collective.grok',
           'collective.miscbehaviors',
           'wcc.vocabularies',
           'collective.geo.bundle',

@@ -11,7 +11,8 @@ recipe to manage your project, you can do this:
     eggs =
         ...
         wcc.churches
-       
+
 * Re-run buildout, e.g. with:
 
     $ ./bin/buildout
+

@@ -7,10 +7,8 @@ bin/
 parts/
 develop-eggs/
 dev/
-var/
 .installed.cfg
 .mr.developer.cfg
 ._*
 .DS_Store
 *~
-*.egg

@@ -2,6 +2,10 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:grok="http://namespaces.zope.org/grok"
+    xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:grok="http://namespaces.zope.org/grok"
     xmlns:plone="http://namespaces.plone.org/plone"
@@ -26,6 +30,7 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <include package=".portlet"/>
   <adapter name="countries" factory=".indexers.churchmember_countries" />
 
   <!-- -*- extra stuff goes here -*- -->
