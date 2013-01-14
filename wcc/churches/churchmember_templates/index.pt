@@ -81,6 +81,11 @@
 
       </table>
 
+      <div tal:content="structure view/w/church_image/render">
+
+      </div>
+
+
       <div id="churchmember-bodytext" tal:content="structure context/text|nothing" 
           tal:condition="context/text|nothing">
 
