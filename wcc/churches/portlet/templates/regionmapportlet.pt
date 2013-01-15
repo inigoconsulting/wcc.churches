@@ -4,25 +4,25 @@
     <link rel="stylesheet" href="++resource++wcc.churches/worldmap.css"/>
     <script>
         $(document).ready(function () {
-            var hide_timer = null;
+            var hide_timer = {};
 
             $('#WorldMap area').mouseenter(function () {
-                window.clearTimeout(hide_timer);
+                window.clearTimeout(hide_timer['#' + $(this).attr('id')]);
                 var sel = $(this).attr('data-map-hover');
                 $(sel).css('visibility','visible');
             }).mouseleave(function () {
                 var sel = $(this).attr('data-map-hover');
-                hide_timer = window.setTimeout ( function () {
+                hide_timer['#' + $(this).attr('id')] = window.setTimeout ( function () {
                     $(sel).css('visibility', 'hidden');
                 }, 100);
             })
 
             $('#WorldMapHover div.map-hover-block').mouseenter(function () {
-                window.clearTimeout(hide_timer);
+                window.clearTimeout(hide_timer[$(this).attr('data-map-id')]);
             }).mouseleave(function () {
                 var sel = $(this).attr('data-map-id');
                 var self = $(this);
-                hide_timer = window.setTimeout ( function () {
+                hide_timer[sel] = window.setTimeout ( function () {
                     self.css('visibility', 'hidden');
                 }, 100);
             });
