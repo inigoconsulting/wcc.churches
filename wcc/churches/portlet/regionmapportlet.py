@@ -114,7 +114,7 @@ class Renderer(base.Renderer):
 
     def _obj_from_path(self, path):
         if path and path.startswith('/'):
-                path = path[1:]
+            path = path[1:]
 
         if not path:
             return None
