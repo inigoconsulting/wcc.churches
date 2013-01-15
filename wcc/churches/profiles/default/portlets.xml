@@ -2,5 +2,9 @@
 <portlets>
 
     <!-- -*- extra stuff goes here -*- -->
+ <portlet 
+   addview="wcc.churches.portlet.RegionMapPortlet"
+   title="Region Map Portlet"
+   description="Portlet showing the region map"/>
 
 </portlets>

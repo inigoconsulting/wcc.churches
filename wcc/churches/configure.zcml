@@ -3,11 +3,9 @@
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:cmf="http://namespaces.zope.org/cmf"
-    xmlns:plone="http://namespaces.plone.org/plone"
     xmlns:grok="http://namespaces.zope.org/grok"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-    xmlns:grok="http://namespaces.zope.org/grok"
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="wcc.churches">
 
@@ -19,16 +17,6 @@
   <include package=".behavior"/>
   
   <i18n:registerTranslations directory="locales" />
-
-  <!-- Register an extension profile to make the product installable
-       in Plone -->
-  <genericsetup:registerProfile
-      name="default"
-      title="WCC Churches Information"
-      directory="profiles/default"
-      description="Extension profile for WCC Churches Information"
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
 
   <include package=".portlet"/>
   <adapter name="countries" factory=".indexers.churchmember_countries" />

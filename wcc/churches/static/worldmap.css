@@ -1,0 +1,52 @@
+#hb_africa, #hb_asia, #hb_caribbean, #hb_europe, #hb_south_america, #hb_middle_east, #hb_north_america, #hb_pacific {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #DDDDDD;
+    max-height: 300px;
+    opacity: 0.9;
+    overflow: auto;
+    position: absolute;
+    visibility: hidden;
+    width: 200px;
+    padding: 0.25em;
+}
+#hb_africa h4, #hb_asia h4, #hb_caribbean h4, #hb_europe h4, #hb_south_america h4, #hb_middle_east h4, #hb_north_america h4, #hb_pacific h4 {
+    font-size: 18px;
+    margin: 0.25em 0 0.5em;
+}
+#hb_africa div, #hb_asia div, #hb_caribbean div, #hb_europe div, #hb_south_america div, #hb_middle_east div, #hb_north_america div, #hb_pacific div {
+    font-size: 11px;
+    line-height: 16px;
+    margin-bottom: 0.5em;
+}
+#hb_africa {
+    left: 290px;
+    top: 100px;
+}
+#hb_asia {
+    left: 480px;
+    top: 20px;
+}
+#hb_caribbean {
+    left: 160px;
+    top: 80px;
+}
+#hb_europe {
+    left: 300px;
+    top: 20px;
+}
+#hb_south_america {
+    left: 180px;
+    top: 110px;
+}
+#hb_middle_east {
+    left: 410px;
+    top: 40px;
+}
+#hb_north_america {
+    left: 150px;
+    top: 20px;
+}
+#hb_pacific {
+    left: 600px;
+    top: 80px;
+}

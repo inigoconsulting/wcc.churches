@@ -5,5 +5,13 @@
 
     <include package="plone.app.portlets" file="permissions.zcml"/>
     <!-- -*- extra stuff goes here -*- -->
+    <plone:portlet
+        name="wcc.churches.portlet.RegionMapPortlet"
+        interface=".regionmapportlet.IRegionMapPortlet"
+        assignment=".regionmapportlet.Assignment"
+        renderer=".regionmapportlet.Renderer"
+        addview=".regionmapportlet.AddForm"
+        editview=".regionmapportlet.EditForm"
+        />
 
 </configure>

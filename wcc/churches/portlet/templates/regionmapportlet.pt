@@ -1,0 +1,104 @@
+<div class="portletRegionMapPortlet"
+    tal:define="data view/obj_map"
+    i18n:domain="wcc.churches">
+    <link rel="stylesheet" href="++resource++wcc.churches/worldmap.css"/>
+    <script>
+        $(document).ready(function () {
+            $('#WorldMap area').mouseenter(function () {
+                var sel = $(this).attr('data-map-hover');
+                $(sel).css('visibility','visible');
+            }).mouseleave(function () {
+                var sel = $(this).attr('data-map-hover');
+                if (! $(sel).is(':hover')) {
+                    $(sel).css('visibility', 'hidden');
+                }
+            })
+
+            $('#WorldMapHover > div').mouseleave(function () {
+                var sel = $(this).attr('data-map-id');
+                if (! $(sel).is(':hover')) { 
+                    $(this).css('visibility', 'hidden');
+                }
+            });
+        })
+    </script>
+    <div id="WorldMapHover" style="position:relative">
+        <div tal:repeat="region data"
+            tal:attributes="id string:hb_${region};
+                            data-map-id string:#hm_${region};">
+            <tal:block define="obj python:data[region]" condition="python:data[region]">
+                <h4><a tal:attributes="href obj/absolute_url" tal:content="obj/Title"></a></h4>
+                <div tal:repeat="country python:view.get_countries(obj)">
+                    <a tal:attributes="href country/absolute_url" tal:content="country/Title"></a>
+                </div>
+            </tal:block>
+        </div>
+    </div>
+<img src="++resource++wcc.churches/map-colour-layers.png" width="700" height="340" border="0" usemap="#WorldMap" alt="" />
+<map name="WorldMap" id="WorldMap">
+      <area 
+          tal:condition="data/africa|nothing"
+          id="hm_africa"
+          alt="Africa" 
+          shape="poly" 
+          coords="259,141,289,108,322,103,354,118,354,144,380,142,397,169,418,168,409,262,368,286,335,287,311,201,268,181" 
+          data-map-hover="#hb_africa"
+          tal:attributes="href data/africa/absolute_url"/>
+      <area           
+          tal:condition="data/south_america|nothing"
+          id="hm_south_america"
+          alt="South America" 
+          shape="poly" 
+          coords="44,115,86,130,111,145,126,174,140,165,176,179,228,219,206,259,182,338,161,336" 
+          data-map-hover="#hb_south_america"
+          tal:attributes="href data/south_america/absolute_url"/>
+      <area 
+          tal:condition="data/caribbean|nothing"
+          id="hm_caribbean"
+          alt="Caribbean" 
+          shape="poly" 
+          coords="111,134,173,134,173,164,124,164,115,147" 
+          data-map-hover="#hb_caribbean"
+          tal:attributes="href data/caribbean/absolute_url"/>
+      <area 
+          tal:condition="data/north_america|nothing"
+          id="hm_north_america"
+          alt="North America" 
+          shape="poly" 
+          coords="48,114,87,128,124,134,288,6,198,2,23,26,2,61" 
+          data-map-hover="#hb_north_america"
+          tal:attributes="href data/north_america/absolute_url" />
+      <area 
+          tal:condition="data/pacific|nothing"
+          id="hm_pacific"
+          alt="Pacific" 
+          shape="poly" 
+          coords="645,191,697,191,697,279,666,277,614,221,617,204" 
+          data-map-hover="#hb_pacific"
+          tal:attributes="href data/pacific/absolute_url" />
+      <area 
+          tal:condition="data/asia|nothing"
+          id="hm_asia"
+          alt="Asia" 
+          shape="poly" 
+          coords="679,295,642,319,601,313,582,284,544,286,549,228,471,177,441,134,430,106,405,91,374,88,381,73,355,51,355,23,388,1,628,29,616,207,614,221" 
+          data-map-hover="#hb_asia"
+          tal:attributes="href data/asia/absolute_url"/>
+      <area 
+          tal:condition="data/europe|nothing"
+          id="hm_europe"
+          alt="Europe" 
+          shape="poly" 
+          coords="375,88,381,74,353,51,354,23,263,33,285,108,323,102,353,109,352,93" 
+          data-map-hover="#hb_europe"
+          tal:attributes="href data/europe/absolute_url"/>
+      <area 
+          tal:condition="data/middle_east|nothing"
+          id="hm_middle_east"
+          alt="Middle East" 
+          shape="poly" 
+          coords="430,155,439,133,428,106,401,92,373,91,354,94,355,143,380,141,399,169" 
+          data-map-hover="#hb_middle_east"
+          tal:attributes="href data/middle_east/absolute_url" />
+  </map>
+</div>
