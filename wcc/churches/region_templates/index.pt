@@ -29,7 +29,7 @@
                 <div tal:define="regional_churchbodies provider/regional_churchbodies">
                     <div id="region-ecunemicalorgs">
                         <tal:block condition="regional_churchbodies">
-                        <h3 i18n:translate="label_regional_ecumenical_organizations">
+                        <h3 i18n:translate="">
                             Regional Ecumenical Organizations
                         </h3>
                         <div tal:repeat="org regional_churchbodies">
@@ -47,7 +47,7 @@
                 </div>
                 <div>
                     <div id="region-countries">
-                    <h3 i18n:translate="label_countries">Countries</h3>
+                    <h3 i18n:translate="">Countries</h3>
                         <div tal:repeat="country provider/countries">
                             <a tal:attributes="href country/absolute_url" tal:content="country/title"></a>
                         </div>

@@ -4,7 +4,7 @@
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     lang="en"
     metal:use-macro="context/main_template/macros/master"
-    i18n:domain="wcc.churchbody">
+    i18n:domain="wcc.churches">
 
     <metal:slot fill-slot="style_slot">
     <link rel="stylesheet" type="text/css" 
@@ -29,13 +29,13 @@
                     </div>
 
                     <tal:block condition="provider/remoteUrl">
-                    <b class="churchbody-label">Website:</b> 
+                    <b class="churchbody-label" i18n:translate="">Website:</b> 
                     <a tal:attributes="href provider/remoteUrl" tal:content="provider/remoteUrl"></a>
                     </tal:block>
 
                     <table id="churchbody-memberdetails">
                         <tr>
-                            <th>Member Of:</th>
+                            <th i18n:translate="">Member Of:</th>
                             <td>
                                 <tal:block condition="provider/member_of">
                                     <a tal:attributes="href provider/member_of/absolute_url"
@@ -44,7 +44,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>Associate Member Of: </th>
+                            <th i18n:translate="">Associate Member Of: </th>
                             <td>
                                 <tal:block condition="provider/assoc_member_of">
                                     <a tal:attributes="href provider/assoc_member_of/absolute_url"
@@ -53,10 +53,10 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>Members: <br/>
-                                <div class="discreet">(Within the WCC membership)</div></th>
+                            <th><span i18n:translate="">Members:</span> <br/>
+                                <div class="discreet" i18n:translate="">(Within the WCC membership)</div></th>
                             <td>
-                                <b>Churches: </b>
+                                <b i18n:translate="">Churches: </b>
                                 <ul>
                                     <li tal:repeat="member provider/members">
                                         <a tal:attributes="href member/absolute_url" tal:content="member/title">
@@ -66,15 +66,16 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>Other Members: 
+                            <th i18n:translate="">Other Members:</th> 
                                 <td tal:content="structure provider/other_members">
                                 </td>
                             </tr>
                             <tr tal:condition="provider/assoc_members">
-                                <th>Associate Members: <br/>
-                                    <div class="discreet">(Within the WCC membership)</div></th>
+                                <th> <span i18n:translate="">Associate
+                                        Members:</span> <br/>
+                                    <div class="discreet" i18n:translate="" >(Within the WCC membership)</div></th>
                                 <td>
-                                    <b>Churches: </b>
+                                    <b i18n:translate="">Churches: </b>
                                     <ul>
                                         <li tal:repeat="member provider/assoc_members">
                                             <a tal:attributes="href member/absolute_url" tal:content="member/title">
@@ -84,7 +85,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>Other Associate Members: 
+                                <th i18n:translate="">Other Associate
+                                    Members:</th> 
                                     <td tal:content="structure provider/other_assoc_members">
                                     </td>
                                 </tr>

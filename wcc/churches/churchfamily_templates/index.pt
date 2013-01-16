@@ -21,7 +21,7 @@
     <tal:block define="provider view/provider">
       <div tal:content="structure provider/text"></div>
       <div id="churchfamily-websites" tal:condition="provider/websites">
-        <h3>Websites</h3>
+        <h3 i18n:translate="">Websites</h3>
         <ul>
             <li tal:repeat="website provider/websites">
                 <a tal:attributes="href website" tal:content="website"></a>
@@ -31,8 +31,8 @@
     <div>
         <table id="churchfamily-membertable">
             <tr>
-                <th>WCC member churches in this family</th>
-                <th>Members</th>
+                <th i18n:translate="">WCC member churches in this family</th>
+                <th i18n:translate="">Members</th>
             </tr>
             <tr>
                 <td id="churchfamily-churchmembers">

@@ -1,0 +1,318 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2013-01-16 12:24+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: wcc.churches\n"
+
+#: ./__init__.py:24
+#: ./churchmember.py:45
+#: ./setuphandlers.py:7
+msgid ""
+msgstr ""
+
+#: ./churchbody_templates/index.pt:57
+msgid "(Within the WCC membership)"
+msgstr ""
+
+#: ./portlet/regionmapportlet.py:143
+msgid "Add Region Map Portlet"
+msgstr ""
+
+#: ./portlet/regionmapportlet.py:24
+msgid "Africa"
+msgstr ""
+
+#: ./portlet/regionmapportlet.py:59
+msgid "Asia"
+msgstr ""
+
+#: ./churchbody_templates/index.pt:47
+msgid "Associate Member Of:"
+msgstr ""
+
+#: ./churchbody_templates/index.pt:74
+msgid "Associate Members:"
+msgstr ""
+
+#: ./churchmember.py:43
+msgid "Based in"
+msgstr ""
+
+#: ./country.py:113
+msgid "Capital"
+msgstr ""
+
+#: ./portlet/regionmapportlet.py:52
+msgid "Caribbean"
+msgstr ""
+
+#: ./profiles/default/types/wcc.churches.churchbody.xml
+msgid "Church Body"
+msgstr ""
+
+#: ./churchmember.py:37
+#: ./profiles/default/types/wcc.churches.churchfamily.xml
+msgid "Church Family"
+msgstr ""
+
+#: ./profiles/default/types/wcc.churches.churchmember.xml
+msgid "Church Member"
+msgstr ""
+
+#: ./profiles/default/types/wcc.churches.churchbody.xml
+msgid "ChurchBody"
+msgstr ""
+
+#: ./profiles/default/types/wcc.churches.churchfamily.xml
+msgid "ChurchFamily"
+msgstr ""
+
+#: ./profiles/default/types/wcc.churches.churchmember.xml
+msgid "ChurchMember"
+msgstr ""
+
+#: ./churchbody_templates/index.pt:59
+msgid "Churches:"
+msgstr ""
+
+#: ./churchmember.py:69
+msgid "Congregations"
+msgstr ""
+
+#: ./region_templates/index.pt:50
+msgid "Countries"
+msgstr ""
+
+#: ./profiles/default/types/wcc.churches.country.xml
+msgid "Country"
+msgstr ""
+
+#: ./country.py:42
+msgid "Country Code"
+msgstr ""
+
+#: ./profiles/default/types/wcc.churches.country.xml
+msgid "Country Information"
+msgstr ""
+
+#: ./country.py:139
+msgid "Denominations"
+msgstr ""
+
+#: ./country_templates/index.pt:32
+msgid "Ecunemical Organizations and Councils"
+msgstr ""
+
+#: ./portlet/regionmapportlet.py:160
+msgid "Edit Region Map Portlet"
+msgstr ""
+
+#: ./portlet/regionmapportlet.py:66
+msgid "Europe"
+msgstr ""
+
+#: ./country.py:43
+msgid "ISO 3166-1 alpha-2 code for this country"
+msgstr ""
+
+#: ./churchmember.py:32
+msgid "Image"
+msgstr ""
+
+#: ./churchbody_templates/index.pt:38
+msgid "Member Of:"
+msgstr ""
+
+#: ./churchfamily_templates/index.pt:35
+msgid "Members"
+msgstr ""
+
+#: ./churchbody_templates/index.pt:56
+msgid "Members:"
+msgstr ""
+
+#: ./churchmember.py:57
+msgid "Membership"
+msgstr ""
+
+#: ./portlet/regionmapportlet.py:73
+msgid "Middle East"
+msgstr ""
+
+#: ./portlet/regionmapportlet.py:31
+msgid "North America"
+msgstr ""
+
+#: ./churchbody_templates/index.pt:88
+msgid "Other Associate Members:"
+msgstr ""
+
+#: ./churchbody_templates/index.pt:69
+msgid "Other Members:"
+msgstr ""
+
+#: ./portlet/regionmapportlet.py:45
+msgid "Pacific"
+msgstr ""
+
+#: ./churchmember.py:63
+msgid "Pastors"
+msgstr ""
+
+#: ./portlet/regionmapportlet.py:144
+msgid "Portlet showing the region map"
+msgstr ""
+
+#: ./churchmember.py:50
+msgid "Present in"
+msgstr ""
+
+#: ./profiles/default/types/wcc.churches.region.xml
+msgid "Region"
+msgstr ""
+
+#: ./profiles/default/types/wcc.churches.region.xml
+msgid "Region Information"
+msgstr ""
+
+#: ./portlet/regionmapportlet.py:97
+msgid "Region Map Portlet"
+msgstr ""
+
+#: ./portlet/regionmapportlet.py:25
+msgid "Region content to link the Africa region to"
+msgstr ""
+
+#: ./portlet/regionmapportlet.py:60
+msgid "Region content to link the Asia region to"
+msgstr ""
+
+#: ./portlet/regionmapportlet.py:53
+msgid "Region content to link the Caribbean region to"
+msgstr ""
+
+#: ./portlet/regionmapportlet.py:67
+msgid "Region content to link the Europe region to"
+msgstr ""
+
+#: ./portlet/regionmapportlet.py:74
+msgid "Region content to link the Middle East region to"
+msgstr ""
+
+#: ./portlet/regionmapportlet.py:32
+msgid "Region content to link the North America region to"
+msgstr ""
+
+#: ./portlet/regionmapportlet.py:46
+msgid "Region content to link the Pacific region to"
+msgstr ""
+
+#: ./portlet/regionmapportlet.py:39
+msgid "Region content to link the South America region to"
+msgstr ""
+
+#: ./region_templates/index.pt:32
+msgid "Regional Ecumenical Organizations"
+msgstr ""
+
+#: ./behavior/location.py:18
+#: ./extender/location.py:31
+msgid "Related Countries"
+msgstr ""
+
+#: ./extender/location.py:26
+msgid "Related Regions"
+msgstr ""
+
+#: ./country.py:130
+msgid "Religions"
+msgstr ""
+
+#: ./portlet/regionmapportlet.py:38
+msgid "South America"
+msgstr ""
+
+#: ./country_templates/index.pt:43
+msgid "WCC member churches based in ${DYNAMIC_CONTENT}"
+msgstr ""
+
+#: ./churchfamily_templates/index.pt:34
+msgid "WCC member churches in this family"
+msgstr ""
+
+#: ./country_templates/index.pt:54
+msgid "WCC member churches present in ${DYNAMIC_CONTENT}"
+msgstr ""
+
+#: ./churchbody.py:83
+#: ./churchmember.py:99
+msgid "Website"
+msgstr ""
+
+#: ./churchbody_templates/index.pt:32
+msgid "Website:"
+msgstr ""
+
+#: ./churchfamily_templates/index.pt:24
+msgid "Websites"
+msgstr ""
+
+#. Default: "Associate Member Of"
+#: ./churchbody.py:65
+#: ./churchmember.py:84
+msgid "label_assoc_member_of"
+msgstr ""
+
+#. Default: "Body Text"
+#: ./churchbody.py:52
+msgid "label_body_text"
+msgstr ""
+
+#. Default: "Full Name"
+#: ./churchbody.py:45
+msgid "label_full_title"
+msgstr ""
+
+#. Default: "Member Of"
+#: ./churchbody.py:59
+#: ./churchmember.py:75
+msgid "label_member_of"
+msgstr ""
+
+#. Default: "Other Associate Members"
+#: ./churchbody.py:78
+msgid "label_other_assoc_members"
+msgstr ""
+
+#. Default: "Other Members"
+#: ./churchbody.py:72
+msgid "label_other_members"
+msgstr ""
+
+#. Default: "Short Name / Abbreviation"
+#: ./churchbody.py:40
+msgid "label_short_title"
+msgstr ""
+
+#. Default: "Websites"
+#: ./churchfamily.py:32
+msgid "label_websites"
+msgstr ""
+
+#: ./setuphandlers.py:6
+msgid "wcc.churches import handler"
+msgstr ""
+
