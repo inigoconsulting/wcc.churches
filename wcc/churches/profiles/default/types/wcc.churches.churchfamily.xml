@@ -7,7 +7,7 @@
   <property name="title" i18n:translate="">ChurchFamily</property>
   <property name="description"
     i18n:translate="">Church Family</property>
-  <property name="icon_expr">string:${portal_url}/document_icon.png</property>
+  <property name="icon_expr">string:${portal_url}/folder_icon.png</property>
   <property name="factory">wcc.churches.churchfamily</property>
   <property name="global_allow">True</property>
   <property name="filter_content_types">False</property>  
@@ -16,7 +16,7 @@
 
   <!-- schema and class used for content items -->
   <property name="schema">wcc.churches.churchfamily.IChurchFamily</property> 
-  <property name="klass">plone.dexterity.content.Item</property>
+  <property name="klass">plone.dexterity.content.Container</property>
   <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
