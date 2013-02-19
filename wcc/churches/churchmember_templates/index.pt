@@ -29,7 +29,7 @@
               <span tal:content="view/w/church_family/label"></span> :
               </th>
               <td tal:content="structure view/w/church_family/render"></td>
-    <td tal:content="structure context/@@images/church_image/preview | nothing" rowspan=8></td>
+    <td tal:content="structure context/@@images/church_image/preview | nothing" rowspan=9></td>
 
           </tr>
           <tr>
@@ -78,7 +78,7 @@
               <th>
               <span tal:content="view/w/remoteUrl/label"></span> :  
               </th>
-              <a><td tal:content="structure view/w/remoteUrl/render"></td></a>
+              <td tal:content="structure view/w/remoteUrl/render"></td>
           </tr>
 
       </table>
