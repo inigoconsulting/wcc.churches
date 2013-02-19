@@ -29,6 +29,8 @@
               <span tal:content="view/w/church_family/label"></span> :
               </th>
               <td tal:content="structure view/w/church_family/render"></td>
+              <td tal:content="structure context/@@images/church_image/mini" rowspan=8></td>
+
           </tr>
           <tr>
               <th>
@@ -80,11 +82,6 @@
           </tr>
 
       </table>
-
-      <div tal:content="structure view/w/church_image/render">
-
-      </div>
-
 
       <div id="churchmember-bodytext" tal:content="structure context/text|nothing" 
           tal:condition="context/text|nothing">
