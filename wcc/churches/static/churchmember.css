@@ -4,6 +4,7 @@
 
 #churchmember-details td, #churchmember-details th {
     width:50%;
+    vertical-align: top;
 }
 
 #churchmember-details th {
@@ -20,9 +21,6 @@
 #form-widgets-church_image .discreet {
     display: none;
 }
-
-#form-widgets-church_image img {
-    position: absolute;
-    right: 50px;
-    top: 110px;
+.church_image {
+    padding-left: 20px;
 }
