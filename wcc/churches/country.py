@@ -147,8 +147,13 @@ class Index(dexterity.DisplayForm):
         geo = geocoders.GeoNames()  
         location = geo.geocode(country, False)
         
+        if not location:
+            return ''
+        
+        #additional condition to fix problem with congo
         if not location[0]:
             return ''
+
 
         place, (lat, lng) = location[0]
         return '''
