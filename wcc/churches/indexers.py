@@ -4,4 +4,9 @@ from plone.indexer.decorator import indexer
 
 @indexer(IChurchMember)
 def churchmember_countries(context, **kw):
-    return [context.based_in] + context.present_in
+    result = []
+    if context.based_in:
+        result.append(context.based_in)
+    if context.present_in:
+        result.append(context.present_in)
+    return result
