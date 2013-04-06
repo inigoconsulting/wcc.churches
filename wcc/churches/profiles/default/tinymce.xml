@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<object>
+ <resourcetypes>
+   <linkable purge="False">
+      <element value="wcc.churches.churchbody"/>
+      <element value="wcc.churches.churchfamily"/>
+      <element value="wcc.churches.churchmember"/>
+      <element value="wcc.churches.country"/>
+      <element value="wcc.churches.region"/>
+   </linkable>
+ </resourcetypes>
+</object>
+

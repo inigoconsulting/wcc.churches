@@ -5,6 +5,15 @@ from zope.component import getUtility
 # -*- extra stuff goes here -*- 
 
 
+@gs.upgradestep(title=u'Upgrade wcc.churches to 1003',
+                description=u'Upgrade wcc.churches to 1003',
+                source='1002', destination='1003',
+                sortkey=1, profile='wcc.churches:default')
+def to1003(context):
+    setup = getToolByName(context, 'portal_setup')
+    setup.runAllImportStepsFromProfile('profile-wcc.churches.upgrades:to1003')
+
+
 @gs.upgradestep(title=u'Upgrade wcc.churches to 1002',
                 description=u'Upgrade wcc.churches to 1002',
                 source='1', destination='1002',
