@@ -5,6 +5,24 @@ from zope.component import getUtility
 # -*- extra stuff goes here -*- 
 
 
+@gs.upgradestep(title=u'Upgrade wcc.churches to 1004',
+                description=u'Upgrade wcc.churches to 1004',
+                source='1003', destination='1004',
+                sortkey=1, profile='wcc.churches:default')
+def to1004(context):
+    setup = getToolByName(context, 'portal_setup')
+    setup.runAllImportStepsFromProfile('profile-wcc.churches.upgrades:to1004')
+
+    catalog = getToolByName(context, 'portal_catalog')
+
+    for brain in catalog(portal_type=['wcc.churches.churchmember',
+                                    'wcc.churches.churchfamily',
+                                    'wcc.churches.churchbody'],
+                                    Language='all'):
+        obj = brain.getObject()
+        obj.reindexObject()
+
+
 @gs.upgradestep(title=u'Upgrade wcc.churches to 1003',
                 description=u'Upgrade wcc.churches to 1003',
                 source='1002', destination='1003',
