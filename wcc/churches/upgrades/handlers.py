@@ -2,6 +2,7 @@ from collective.grok import gs
 from Products.CMFCore.utils import getToolByName
 from zope.intid.interfaces import IIntIds
 from zope.component import getUtility
+from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
 # -*- extra stuff goes here -*- 
 
 
@@ -20,6 +21,9 @@ def to1004(context):
                                     'wcc.churches.churchbody'],
                                     Language='all'):
         obj = brain.getObject()
+        obj.reindexObject()
+        adapted = IExcludeFromNavigation(obj)
+        adapted.exclude_from_nav = False
         obj.reindexObject()
 
 
