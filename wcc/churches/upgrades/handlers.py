@@ -7,9 +7,21 @@ from zc.relation.interfaces import ICatalog
 from zope.component import getUtility
 from zope.app.intid.interfaces import IIntIds
 from z3c.relationfield.event import _relations, updateRelations
+from zope.globalrequest import getRequest
 
 # -*- extra stuff goes here -*- 
 
+
+@gs.upgradestep(title=u'Upgrade wcc.churches to 1006',
+                description=u'Upgrade wcc.churches to 1006',
+                source='1005', destination='1006',
+                sortkey=1, profile='wcc.churches:default')
+def to1006(context):
+    setup = getToolByName(context, 'portal_setup')
+    setup.runAllImportStepsFromProfile('profile-wcc.churches.upgrades:to1006')
+
+    catalog = getToolByName(context, 'portal_catalog')
+    catalog.reindexIndex('countries', getRequest())
 
 @gs.upgradestep(title=u'Upgrade wcc.churches to 1005',
                 description=u'Upgrade wcc.churches to 1005',

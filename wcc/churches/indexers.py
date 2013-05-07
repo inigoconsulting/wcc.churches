@@ -8,5 +8,6 @@ def churchmember_countries(context, **kw):
     if context.based_in:
         result.append(context.based_in)
     if context.present_in:
-        result.append(context.present_in)
+        for country in context.present_in:
+            result.append(country)
     return result
