@@ -57,13 +57,21 @@ class IChurchBody(form.Schema, IBasic, IImageScaleTraversable):
     
     member_of = RelationChoice(
             title=_(u'label_member_of', u"Member Of"),
-            source=ObjPathSourceBinder(object_provides='wcc.churches.churchfamily.IChurchFamily'),
+            source=ObjPathSourceBinder(object_provides=[
+                'wcc.churches.churchfamily.IChurchFamily',
+                'wcc.churches.churchbody.IChurchBody'
+            ]),
             required=False
     )
 
     assoc_member_of = RelationChoice(
             title=_(u'label_assoc_member_of', u'Associate Member Of'),
-            source=ObjPathSourceBinder(object_provides='wcc.churches.churchfamily.IChurchFamily'),
+            source=ObjPathSourceBinder(
+                object_provides=[
+                    'wcc.churches.churchfamily.IChurchFamily',
+                    'wcc.churches.churchbody.IChurchBody',
+                ]
+            ),
             required=False
     )
 
