@@ -56,6 +56,16 @@
                             <th><span i18n:translate="">Members:</span> <br/>
                                 <div class="discreet" i18n:translate="">(Within the WCC membership)</div></th>
                             <td>
+                                <tal:block condition="provider/organizations">
+                                <b i18n:translate="">Organizations : </b>
+                                <ul>
+                                    <li tal:repeat="member provider/organizations">
+                                        <a tal:attributes="href member/absolute_url" tal:content="member/title">
+                                        </a>
+                                    </li>
+                                </ul>
+                                </tal:block>
+                                <tal:block condition="provider/members">
                                 <b i18n:translate="">Churches: </b>
                                 <ul>
                                     <li tal:repeat="member provider/members">
@@ -63,6 +73,7 @@
                                         </a>
                                     </li>
                                 </ul>
+                                </tal:block>
                             </td>
                         </tr>
                         <tr>
@@ -70,11 +81,21 @@
                                 <td tal:content="structure provider/other_members">
                                 </td>
                             </tr>
-                            <tr tal:condition="provider/assoc_members">
+                            <tr>
                                 <th> <span i18n:translate="">Associate
                                         Members:</span> <br/>
                                     <div class="discreet" i18n:translate="" >(Within the WCC membership)</div></th>
                                 <td>
+                                    <tal:block condition="provider/assoc_organizations">
+                                        <b i18n:translate="">Organizations : </b>
+                                        <ul>
+                                            <li tal:repeat="member provider/assoc_organizations">
+                                                <a tal:attributes="href member/absolute_url" tal:content="member/title">
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </tal:block>
+                                    <tal:block condition="provider/assoc_members">
                                     <b i18n:translate="">Churches: </b>
                                     <ul>
                                         <li tal:repeat="member provider/assoc_members">
@@ -82,6 +103,7 @@
                                             </a>
                                         </li>
                                     </ul>
+                                    </tal:block>
                                 </td>
                             </tr>
                             <tr>

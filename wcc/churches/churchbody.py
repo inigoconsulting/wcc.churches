@@ -21,6 +21,7 @@ from plone.formwidget.contenttree import ObjPathSourceBinder
 from wcc.churches import MessageFactory as _
 from plone.app.dexterity.behaviors.metadata import IBasic
 from wcc.churches.backref import back_references
+from wcc.churches.churchmember import IChurchMember
 
 # Interface class; used to define content-type schema.
 from collective import dexteritytextindexer
@@ -135,11 +136,36 @@ class ChurchBodyDataProvider(grok.Adapter):
 
     @property
     def members(self):
-        return back_references(self.context, 'member_of')
+        result = []
+        for i in back_references(self.context, 'member_of'):
+            if IChurchMember.providedBy(i):
+                result.append(i)
+        return result
+
+
+    @property
+    def organizations(self):
+        result = []
+        for i in back_references(self.context, 'member_of'):
+            if IChurchBody.providedBy(i):
+                result.append(i)
+        return result
 
     @property
     def assoc_members(self):
-        return back_references(self.context, 'assoc_member_of')
+        result = []
+        for i in back_references(self.context, 'assoc_member_of'):
+            if IChurchMember.providedBy(i):
+                result.append(i)
+        return result
+
+    @property
+    def assoc_organizations(self):
+        result = []
+        for i in back_references(self.context, 'assoc_member_of'):
+            if IChurchBody.providedBy(i):
+                result.append(i)
+        return result
 
     @property
     def other_members(self):
