@@ -29,7 +29,7 @@
           <metal:use use-macro="context/@@collectivegeo-macros/map-widget" />
       </tal:block>
 
-      <h4 i18n:translate="">Ecunemical Organizations and Councils</h4>
+      <h4 i18n:translate="ecumenical_organizations_and_councils">Ecumenical Organizations and Councils</h4>
       <div id="country-ecunemicalorgs">
           <ul>
             <li tal:repeat="org provider/ecumenical_orgs">
@@ -40,7 +40,7 @@
           </ul>
       </div>
 
-      <h4 i18n:translate="">WCC member churches based in <tal:block replace="context/title"/></h4>
+      <h4 i18n:translate="wcc_member_churches_based_in">WCC member churches based in <tal:block replace="context/title"/></h4>
       <div id="country-churchmembers">
           <ul>
             <li tal:repeat="org provider/based_churchmembers">
@@ -51,7 +51,7 @@
           </ul>
       </div>
 
-      <h4 i18n:translate="">WCC member churches present in <tal:block replace="context/title"/></h4>
+      <h4 i18n:translate="wcc_member_churches_present_in">WCC member churches present in <tal:block replace="context/title"/></h4>
       <div id="country-churchmembers">
           <ul>
             <li tal:repeat="org provider/present_churchmembers">
