@@ -5,7 +5,12 @@ class ObjectProvidesPathSourceBinder(ObjPathSourceBinder):
 
     def __init__(self, object_provides=None,
                 navigation_tree_query=None, **kw):
-        self._object_provides = object_provides or []
+        object_provides = object_provides or []
+
+        if isinstance(object_provides, str):
+            self._object_provides = [object_provides]
+        else:
+            self._object_provides = []
 
         if object_provides:
             kw['object_provides'] = object_provides

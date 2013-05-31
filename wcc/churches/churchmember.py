@@ -77,10 +77,7 @@ class IChurchMember(form.Schema, IImageScaleTraversable):
             default=[],
             value_type=RelationChoice(
                 source=ObjectProvidesPathSourceBinder(
-                    object_provides=[
-                        'wcc.churches.churchfamily.IChurchFamily',
-                        'wcc.churches.churchbody.IChurchBody'
-                    ]
+                    object_provides='wcc.churches.churchbody.IChurchBody'
                 )
             ),
             required=False
