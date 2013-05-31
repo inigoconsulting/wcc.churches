@@ -15,7 +15,6 @@ class ObjectProvidesPathSourceBinder(ObjPathSourceBinder):
         )
 
     def __call__(self, context):
-        site = getSite()
         source = self.path_source(
             closest_content(context),
             selectable_filter=self.selectable_filter,
