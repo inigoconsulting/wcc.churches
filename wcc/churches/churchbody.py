@@ -17,6 +17,7 @@ from plone.app.textfield import RichText
 
 from z3c.relationfield.schema import RelationList, RelationChoice
 from plone.formwidget.contenttree import ObjPathSourceBinder
+from wcc.churches.source import ObjectProvidesPathSourceBinder
 
 from wcc.churches import MessageFactory as _
 from plone.app.dexterity.behaviors.metadata import IBasic
@@ -58,7 +59,7 @@ class IChurchBody(form.Schema, IBasic, IImageScaleTraversable):
     
     member_of = RelationChoice(
             title=_(u'label_member_of', u"Member Of"),
-            source=ObjPathSourceBinder(object_provides=[
+            source=ObjectProvidesPathSourceBinder(object_provides=[
                 'wcc.churches.churchfamily.IChurchFamily',
                 'wcc.churches.churchbody.IChurchBody'
             ]),
@@ -67,7 +68,7 @@ class IChurchBody(form.Schema, IBasic, IImageScaleTraversable):
 
     assoc_member_of = RelationChoice(
             title=_(u'label_assoc_member_of', u'Associate Member Of'),
-            source=ObjPathSourceBinder(
+            source=ObjectProvidesPathSourceBinder(
                 object_provides=[
                     'wcc.churches.churchfamily.IChurchFamily',
                     'wcc.churches.churchbody.IChurchBody',

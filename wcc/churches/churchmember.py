@@ -16,10 +16,10 @@ from plone.namedfile.field import NamedBlobImage, NamedBlobFile
 from plone.app.textfield import RichText
 
 from z3c.relationfield.schema import RelationList, RelationChoice, Relation
-from plone.formwidget.contenttree import ObjPathSourceBinder
-
 from wcc.churches import MessageFactory as _
+from wcc.churches.source import ObjectProvidesPathSourceBinder
 from plone.indexer.decorator import indexer
+from zope.component.hooks import getSite
 
 # Interface class; used to define content-type schema.
 
@@ -29,15 +29,16 @@ class IChurchMember(form.Schema, IImageScaleTraversable):
     """
 
     church_image = NamedBlobImage(
-            title=_(u'Image'),
-            required=False,
-            )
+        title=_(u'Image'),
+        required=False,
+    )
 
     church_family = RelationChoice(
             title=_(u'Church Family'),
-            source=ObjPathSourceBinder(object_provides='wcc.churches.churchfamily.IChurchFamily'),
+            source=ObjectProvidesPathSourceBinder(
+                object_provides='wcc.churches.churchfamily.IChurchFamily'),
             required=False
-            )
+    )
 
     based_in = schema.Choice(
             title=_(u'Based in'),
@@ -75,8 +76,13 @@ class IChurchMember(form.Schema, IImageScaleTraversable):
             title=_(u'label_member_of', u"Member Of"),
             default=[],
             value_type=RelationChoice(
-                source=ObjPathSourceBinder(object_provides='wcc.churches.churchbody.IChurchBody')
-                ),
+                source=ObjectProvidesPathSourceBinder(
+                    object_provides=[
+                        'wcc.churches.churchfamily.IChurchFamily',
+                        'wcc.churches.churchbody.IChurchBody'
+                    ]
+                )
+            ),
             required=False
             )
 
@@ -84,7 +90,8 @@ class IChurchMember(form.Schema, IImageScaleTraversable):
             title=_(u'label_assoc_member_of', u'Associate Member Of'),
             default=[],
             value_type=RelationChoice(
-                source=ObjPathSourceBinder(object_provides='wcc.churches.churchbody.IChurchBody'),
+                source=ObjectProvidesPathSourceBinder(
+                    object_provides='wcc.churches.churchbody.IChurchBody'),
             ),
             required=False
             )
