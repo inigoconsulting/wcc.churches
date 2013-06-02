@@ -32,7 +32,7 @@
         <table id="churchfamily-membertable">
             <tr>
                 <th i18n:translate="">WCC member churches in this family</th>
-                <th i18n:translate="">Members</th>
+                <th i18n:translate="">Related organizations</th>
             </tr>
             <tr>
                 <td id="churchfamily-churchmembers">
