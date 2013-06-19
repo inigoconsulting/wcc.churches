@@ -227,7 +227,7 @@ msgstr ""
 
 #: ./churchfamily_templates/index.pt:35
 msgid "Related organizations"
-msgstr "Miembros"
+msgstr "Organizaciones relacionadas"
 
 #: ./country.py:130
 msgid "Religions"

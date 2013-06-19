@@ -227,7 +227,7 @@ msgstr ""
 
 #: ./churchfamily_templates/index.pt:35
 msgid "Related organizations"
-msgstr "Membres"
+msgstr "Organisations apparentées"
 
 #: ./country.py:130
 msgid "Religions"
@@ -239,7 +239,7 @@ msgstr ""
 
 #: ./churchfamily_templates/index.pt:34
 msgid "WCC member churches in this family"
-msgstr "Membres du COE dans cette famille"
+msgstr "Églises membres du COE dans cette famille"
 
 #: ./churchbody.py:93
 #: ./churchmember.py:103
