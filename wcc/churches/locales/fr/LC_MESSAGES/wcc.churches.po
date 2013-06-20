@@ -1,10 +1,7 @@
-# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
-# SOME DESCRIPTIVE TITLE.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-06-19 06:03+0000\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,17 +12,11 @@ msgstr ""
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: wcc.churches\n"
-
-#: ./__init__.py:24
-#: ./churchmember.py:46
-#: ./setuphandlers.py:7
-msgid ""
-msgstr ""
+"Domain: DOMAIN\n"
 
 #: ./churchbody_templates/index.pt:57
 msgid "(Within the WCC membership)"
-msgstr ""
+msgstr "(Au sein des membres du COE)"
 
 #: ./portlet/regionmapportlet.py:143
 msgid "Add Region Map Portlet"
@@ -41,15 +32,15 @@ msgstr ""
 
 #: ./churchbody_templates/index.pt:47
 msgid "Associate Member Of:"
-msgstr ""
+msgstr "Membre associé de:"
 
 #: ./churchbody_templates/index.pt:85
 msgid "Associate Members:"
-msgstr ""
+msgstr "Membres associés:"
 
 #: ./churchmember.py:44
 msgid "Based in"
-msgstr ""
+msgstr "Basé en"
 
 #: ./country.py:113
 msgid "Capital"
@@ -68,7 +59,7 @@ msgstr ""
 #: ./profiles/default/types/wcc.churches.churchfamily.xml
 #: ./upgrades/profiles/to1004/types/wcc.churches.churchfamily.xml
 msgid "Church Family"
-msgstr ""
+msgstr "Famille spirituelle"
 
 #: ./profiles/default/types/wcc.churches.churchmember.xml
 #: ./upgrades/profiles/to1004/types/wcc.churches.churchmember.xml
@@ -96,11 +87,11 @@ msgstr ""
 
 #: ./churchmember.py:70
 msgid "Congregations"
-msgstr ""
+msgstr "Paroisses"
 
 #: ./region_templates/index.pt:50
 msgid "Countries"
-msgstr ""
+msgstr "Pays"
 
 #: ./profiles/default/types/wcc.churches.country.xml
 msgid "Country"
@@ -136,15 +127,15 @@ msgstr ""
 
 #: ./churchbody_templates/index.pt:38
 msgid "Member Of:"
-msgstr ""
+msgstr "Membre de:"
 
 #: ./churchbody_templates/index.pt:56
 msgid "Members:"
-msgstr ""
+msgstr "Membres:"
 
 #: ./churchmember.py:58
 msgid "Membership"
-msgstr ""
+msgstr "Nombre de membres"
 
 #: ./portlet/regionmapportlet.py:73
 msgid "Middle East"
@@ -160,11 +151,11 @@ msgstr ""
 
 #: ./churchbody_templates/index.pt:110
 msgid "Other Associate Members:"
-msgstr ""
+msgstr "Membres associés:"
 
 #: ./churchbody_templates/index.pt:80
 msgid "Other Members:"
-msgstr ""
+msgstr "Autres membres:"
 
 #: ./portlet/regionmapportlet.py:45
 msgid "Pacific"
@@ -172,7 +163,7 @@ msgstr ""
 
 #: ./churchmember.py:64
 msgid "Pastors"
-msgstr ""
+msgstr "Pasteurs"
 
 #: ./portlet/regionmapportlet.py:144
 msgid "Portlet showing the region map"
@@ -180,7 +171,7 @@ msgstr ""
 
 #: ./churchmember.py:51
 msgid "Present in"
-msgstr ""
+msgstr "Présent en"
 
 #: ./profiles/default/types/wcc.churches.region.xml
 msgid "Region"
@@ -228,7 +219,7 @@ msgstr ""
 
 #: ./region_templates/index.pt:32
 msgid "Regional Ecumenical Organizations"
-msgstr ""
+msgstr "Organisations oecuméniques régionales"
 
 #: ./behavior/location.py:18
 msgid "Related Countries"
@@ -236,7 +227,7 @@ msgstr ""
 
 #: ./churchfamily_templates/index.pt:35
 msgid "Related organizations"
-msgstr ""
+msgstr "Organisations apparentées"
 
 #: ./country.py:130
 msgid "Religions"
@@ -248,7 +239,7 @@ msgstr ""
 
 #: ./churchfamily_templates/index.pt:34
 msgid "WCC member churches in this family"
-msgstr ""
+msgstr "Églises membres du COE dans cette famille"
 
 #: ./churchbody.py:93
 #: ./churchmember.py:103
@@ -266,13 +257,13 @@ msgstr ""
 #. Default: "Ecumenical Organizations and Councils"
 #: ./country_templates/index.pt:32
 msgid "ecumenical_organizations_and_councils"
-msgstr ""
+msgstr "Organisations et Conseils oecuméniques"
 
 #. Default: "Associate Member Of"
 #: ./churchbody.py:70
 #: ./churchmember.py:87
 msgid "label_assoc_member_of"
-msgstr ""
+msgstr "Membre associé de"
 
 #. Default: "Body Text"
 #: ./churchbody.py:54
@@ -288,7 +279,7 @@ msgstr ""
 #: ./churchbody.py:61
 #: ./churchmember.py:76
 msgid "label_member_of"
-msgstr ""
+msgstr "Membre de"
 
 #. Default: "Other Associate Members"
 #: ./churchbody.py:88
@@ -317,10 +308,10 @@ msgstr ""
 #. Default: "WCC member churches based in ${DYNAMIC_CONTENT}"
 #: ./country_templates/index.pt:43
 msgid "wcc_member_churches_based_in"
-msgstr ""
+msgstr "Membres du COE basés en"
 
 #. Default: "WCC member churches present in ${DYNAMIC_CONTENT}"
 #: ./country_templates/index.pt:54
 msgid "wcc_member_churches_present_in"
-msgstr ""
+msgstr "Membres du COE présents en"
 

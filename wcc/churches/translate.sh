@@ -18,7 +18,7 @@ CURRENT_PATH=`pwd`
 CATALOGNAME="wcc.churches"
 
 # List of languages
-LANGUAGES="en"
+LANGUAGES="de fr es"
 
 # Create locales folder structure for languages
 install -d locales
