@@ -26,6 +26,8 @@ from collective.geo.mapwidget.browser.widget import MapWidget
 from wcc.churches.backref import back_references
 from zope.schema.interfaces import IVocabularyFactory
 from zope.component import getUtility
+from plone.memoize.view import memoize
+
 # Interface class; used to define content-type schema.
 
 
@@ -144,11 +146,16 @@ class Index(dexterity.DisplayForm):
         })
         return result
 
+    @memoize
+    def _query_geolocation(self, location):
+        geo = geocoders.GeoNames()
+        location = geo.geocode(location, False)
+        return location
+
     def map_state(self):
         vocab = getUtility(IVocabularyFactory, name='wcc.vocabulary.country')
         country = vocab.name_from_code(self.context.country_code)
-        geo = geocoders.GeoNames()  
-        location = geo.geocode(country, False)
+        location = self._query_geolocation(country)
         
         if not location:
             return ''
