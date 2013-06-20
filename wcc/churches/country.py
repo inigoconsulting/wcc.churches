@@ -24,6 +24,8 @@ from wcc.vocabularies.countries import lookup_capital
 from geopy import geocoders
 from collective.geo.mapwidget.browser.widget import MapWidget
 from wcc.churches.backref import back_references
+from zope.schema.interfaces import IVocabularyFactory
+from zope.component import getUtility
 # Interface class; used to define content-type schema.
 
 
@@ -143,7 +145,8 @@ class Index(dexterity.DisplayForm):
         return result
 
     def map_state(self):
-        country = self.context.title
+        vocab = getUtility(IVocabularyFactory, name='wcc.vocabulary.country')
+        country = vocab.name_from_code(self.context.country_code)
         geo = geocoders.GeoNames()  
         location = geo.geocode(country, False)
         
