@@ -20,6 +20,7 @@ from wcc.churches import MessageFactory as _
 from wcc.churches.source import ObjectProvidesPathSourceBinder
 from plone.indexer.decorator import indexer
 from zope.component.hooks import getSite
+from datetime import date
 
 # Interface class; used to define content-type schema.
 
@@ -95,6 +96,8 @@ class IChurchMember(form.Schema, IImageScaleTraversable):
 
     wcc_member_since = schema.Date(
             title=u'WCC Member Since',
+            min = date(1900, 1, 1),
+            max = date.today(),
             required=False
             )
 
