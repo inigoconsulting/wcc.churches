@@ -21,6 +21,7 @@ from wcc.churches.source import ObjectProvidesPathSourceBinder
 from plone.indexer.decorator import indexer
 from zope.component.hooks import getSite
 from datetime import date
+from plone.multilingualbehavior.directives import languageindependent
 
 # Interface class; used to define content-type schema.
 
@@ -29,11 +30,13 @@ class IChurchMember(form.Schema, IImageScaleTraversable):
     Church Member
     """
 
+    languageindependent('church_image')
     church_image = NamedBlobImage(
         title=_(u'Image'),
         required=False,
     )
 
+    languageindependent('church_family')
     church_family = RelationChoice(
             title=_(u'Church Family'),
             source=ObjectProvidesPathSourceBinder(
@@ -41,6 +44,7 @@ class IChurchMember(form.Schema, IImageScaleTraversable):
             required=False
     )
 
+    languageindependent('based_in')
     based_in = schema.Choice(
             title=_(u'Based in'),
             vocabulary='wcc.vocabulary.country',
@@ -48,6 +52,7 @@ class IChurchMember(form.Schema, IImageScaleTraversable):
             required=False,
             )
 
+    languageindependent('present_in')
     present_in = schema.List(
             title=_(u'Present in'),
             value_type=schema.Choice(vocabulary='wcc.vocabulary.country'),
@@ -55,24 +60,28 @@ class IChurchMember(form.Schema, IImageScaleTraversable):
             required=False,
             )
 
+    languageindependent('membership')
     membership = schema.Int(
             title=_(u'Membership'),
             description=_(u''),
             required=False,
             )
 
+    languageindependent('pastors')
     pastors = schema.Int(
             title=_(u'Pastors'),
             description=_(u''),
             required=False
             )
 
+    languageindependent('congregations')
     congregations = schema.Int(
             title=_(u'Congregations'),
             description=_(u''),
             required=False
             )
 
+    languageindependent('member_of')
     member_of = RelationList(
             title=_(u'label_member_of', u"Member Of"),
             default=[],
@@ -84,6 +93,7 @@ class IChurchMember(form.Schema, IImageScaleTraversable):
             required=False
             )
 
+    languageindependent('assoc_member_of')
     assoc_member_of = RelationList(
             title=_(u'label_assoc_member_of', u'Associate Member Of'),
             default=[],
@@ -94,6 +104,7 @@ class IChurchMember(form.Schema, IImageScaleTraversable):
             required=False
             )
 
+    languageindependent('wcc_member_since')
     wcc_member_since = schema.Date(
             title=u'WCC Member Since',
             min = date(1900, 1, 1),
@@ -101,7 +112,7 @@ class IChurchMember(form.Schema, IImageScaleTraversable):
             required=False
             )
 
-
+    languageindependent('remoteUrl')
     remoteUrl = schema.TextLine(
             title=_(u"Website"),
             default=u'http://',

@@ -23,6 +23,7 @@ from wcc.churches import MessageFactory as _
 from plone.app.dexterity.behaviors.metadata import IBasic
 from wcc.churches.backref import back_references
 from wcc.churches.churchmember import IChurchMember
+from plone.multilingualbehavior.directives import languageindependent
 
 # Interface class; used to define content-type schema.
 from collective import dexteritytextindexer
@@ -56,7 +57,7 @@ class IChurchBody(form.Schema, IBasic, IImageScaleTraversable):
         required=False,
     )
 
-    
+    languageindependent('member_of')
     member_of = RelationChoice(
             title=_(u'label_member_of', u"Member Of"),
             source=ObjectProvidesPathSourceBinder(object_provides=[
@@ -66,6 +67,7 @@ class IChurchBody(form.Schema, IBasic, IImageScaleTraversable):
             required=False
     )
 
+    languageindependent('assoc_member_of')
     assoc_member_of = RelationChoice(
             title=_(u'label_assoc_member_of', u'Associate Member Of'),
             source=ObjectProvidesPathSourceBinder(
@@ -77,25 +79,27 @@ class IChurchBody(form.Schema, IBasic, IImageScaleTraversable):
             required=False
     )
 
+    languageindependent('other_members')
     form.widget(other_members="plone.app.z3cform.wysiwyg.WysiwygFieldWidget")
     other_members = schema.Text(
         title=_(u'label_other_members', u'Other Members'),
         required=False
     )
 
+    languageindependent('other_assoc_members')
     form.widget(other_assoc_members="plone.app.z3cform.wysiwyg.WysiwygFieldWidget")
     other_assoc_members = schema.Text(
         title=_(u'label_other_assoc_members', u'Other Associate Members'),
         required=False
     )
 
+    languageindependent('remoteUrl')
     remoteUrl = schema.TextLine(
         title=_(u"Website"),
         default=u'http://',
         description=u"",
         required=False,
     )
-
 
     form.order_before(full_title = '*')
     form.order_before(title = '*')

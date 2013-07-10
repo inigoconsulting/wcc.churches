@@ -20,6 +20,7 @@ from plone.formwidget.contenttree import ObjPathSourceBinder
 
 from wcc.churches import MessageFactory as _
 from wcc.churches.backref import back_references
+from plone.multilingualbehavior.directives import languageindependent
 
 # Interface class; used to define content-type schema.
 
@@ -28,6 +29,7 @@ class IChurchFamily(form.Schema, IImageScaleTraversable):
     Church Family
     """
     
+    languageindependent('websites')
     websites = schema.List(
         title=_(u'label_websites', u'Websites'),
         value_type=schema.TextLine(),
