@@ -8,8 +8,34 @@ from zope.component import getUtility
 from zope.app.intid.interfaces import IIntIds
 from z3c.relationfield.event import _relations, updateRelations
 from zope.globalrequest import getRequest
+from zope.lifecycleevent import modified
+import logging
+logger = logging.getLogger('wcc.churches')
 
 # -*- extra stuff goes here -*- 
+
+
+@gs.upgradestep(title=u'Upgrade wcc.churches to 1007',
+                description=u'Upgrade wcc.churches to 1007',
+                source='1006', destination='1007',
+                sortkey=1, profile='wcc.churches:default')
+def to1007(context):
+    setup = getToolByName(context, 'portal_setup')
+    setup.runAllImportStepsFromProfile('profile-wcc.churches.upgrades:to1007')
+
+    catalog = getToolByName(context, 'portal_catalog')
+    for brain in catalog(
+            portal_types=[
+                'wcc.churches.churchbody',
+                'wcc.churches.churchmember',
+                'wcc.churches.churchfamily'
+            ], Language='en'):
+        obj = brain.getObject()
+        try:
+            modified(obj)
+        except:
+            logger.info('Issue migrating %s' % obj.absolute_url())
+
 
 
 @gs.upgradestep(title=u'Upgrade wcc.churches to 1006',
