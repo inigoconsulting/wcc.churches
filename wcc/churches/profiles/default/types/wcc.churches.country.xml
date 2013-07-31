@@ -12,7 +12,7 @@
   <property name="global_allow">False</property>
   <property name="filter_content_types">True</property>  
   <property name="allowed_content_types">
-      <element value="wcc.churches.churchmember"/>
+      <element value="wcc.churches.churchbody"/>
   </property>
   <property name="allow_discussion">False</property>
   <!-- schema and class used for content items -->
