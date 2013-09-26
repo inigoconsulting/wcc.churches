@@ -25,7 +25,7 @@ def to1007(context):
 
     catalog = getToolByName(context, 'portal_catalog')
     for brain in catalog(
-            portal_types=[
+            portal_type=[
                 'wcc.churches.churchbody',
                 'wcc.churches.churchmember',
                 'wcc.churches.churchfamily'
