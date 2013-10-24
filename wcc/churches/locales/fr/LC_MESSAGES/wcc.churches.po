@@ -38,11 +38,11 @@ msgstr "Membre associé de:"
 msgid "Associate Members:"
 msgstr "Membres associés:"
 
-#: ./churchmember.py:44
+#: ./churchmember.py:49
 msgid "Based in"
 msgstr "Basé en"
 
-#: ./country.py:113
+#: ./country.py:123
 msgid "Capital"
 msgstr ""
 
@@ -55,7 +55,7 @@ msgstr ""
 msgid "Church Body"
 msgstr ""
 
-#: ./churchmember.py:37
+#: ./churchmember.py:41
 #: ./profiles/default/types/wcc.churches.churchfamily.xml
 #: ./upgrades/profiles/to1004/types/wcc.churches.churchfamily.xml
 msgid "Church Family"
@@ -85,7 +85,7 @@ msgstr ""
 msgid "Churches:"
 msgstr ""
 
-#: ./churchmember.py:70
+#: ./churchmember.py:79
 msgid "Congregations"
 msgstr "Paroisses"
 
@@ -97,7 +97,7 @@ msgstr "Pays"
 msgid "Country"
 msgstr ""
 
-#: ./country.py:42
+#: ./country.py:46
 msgid "Country Code"
 msgstr ""
 
@@ -105,7 +105,7 @@ msgstr ""
 msgid "Country Information"
 msgstr ""
 
-#: ./country.py:139
+#: ./country.py:149
 msgid "Denominations"
 msgstr ""
 
@@ -117,11 +117,11 @@ msgstr ""
 msgid "Europe"
 msgstr ""
 
-#: ./country.py:43
+#: ./country.py:47
 msgid "ISO 3166-1 alpha-2 code for this country"
 msgstr ""
 
-#: ./churchmember.py:32
+#: ./churchmember.py:35
 msgid "Image"
 msgstr ""
 
@@ -133,7 +133,7 @@ msgstr "Membre de:"
 msgid "Members:"
 msgstr "Membres:"
 
-#: ./churchmember.py:58
+#: ./churchmember.py:65
 msgid "Membership"
 msgstr "Nombre de membres"
 
@@ -161,7 +161,7 @@ msgstr "Autres membres:"
 msgid "Pacific"
 msgstr ""
 
-#: ./churchmember.py:64
+#: ./churchmember.py:72
 msgid "Pastors"
 msgstr "Pasteurs"
 
@@ -169,7 +169,7 @@ msgstr "Pasteurs"
 msgid "Portlet showing the region map"
 msgstr ""
 
-#: ./churchmember.py:51
+#: ./churchmember.py:57
 msgid "Present in"
 msgstr "Présent en"
 
@@ -229,7 +229,7 @@ msgstr ""
 msgid "Related organizations"
 msgstr "Organisations apparentées"
 
-#: ./country.py:130
+#: ./country.py:140
 msgid "Religions"
 msgstr ""
 
@@ -237,12 +237,16 @@ msgstr ""
 msgid "South America"
 msgstr ""
 
+#: ./country.py:53
+msgid "Still in development"
+msgstr ""
+
 #: ./churchfamily_templates/index.pt:34
 msgid "WCC member churches in this family"
 msgstr "Églises membres du COE dans cette famille"
 
-#: ./churchbody.py:93
-#: ./churchmember.py:103
+#: ./churchbody.py:98
+#: ./churchmember.py:117
 msgid "Website"
 msgstr ""
 
@@ -260,44 +264,44 @@ msgid "ecumenical_organizations_and_councils"
 msgstr "Organisations et Conseils oecuméniques"
 
 #. Default: "Associate Member Of"
-#: ./churchbody.py:70
-#: ./churchmember.py:87
+#: ./churchbody.py:72
+#: ./churchmember.py:98
 msgid "label_assoc_member_of"
 msgstr "Membre associé de"
 
 #. Default: "Body Text"
-#: ./churchbody.py:54
+#: ./churchbody.py:55
 msgid "label_body_text"
 msgstr ""
 
 #. Default: "Full Name"
-#: ./churchbody.py:47
+#: ./churchbody.py:48
 msgid "label_full_title"
 msgstr ""
 
 #. Default: "Member Of"
-#: ./churchbody.py:61
-#: ./churchmember.py:76
+#: ./churchbody.py:62
+#: ./churchmember.py:86
 msgid "label_member_of"
 msgstr "Membre de"
 
 #. Default: "Other Associate Members"
-#: ./churchbody.py:88
+#: ./churchbody.py:92
 msgid "label_other_assoc_members"
 msgstr ""
 
 #. Default: "Other Members"
-#: ./churchbody.py:82
+#: ./churchbody.py:85
 msgid "label_other_members"
 msgstr ""
 
 #. Default: "Short Name / Abbreviation"
-#: ./churchbody.py:42
+#: ./churchbody.py:43
 msgid "label_short_title"
 msgstr ""
 
 #. Default: "Websites"
-#: ./churchfamily.py:32
+#: ./churchfamily.py:34
 msgid "label_websites"
 msgstr ""
 
@@ -309,6 +313,11 @@ msgstr ""
 #: ./country_templates/index.pt:43
 msgid "wcc_member_churches_based_in"
 msgstr "Membres du COE basés en"
+
+#. Default: "Note: The list of churches present in countries is still in development."
+#: ./country_templates/index.pt:65
+msgid "wcc_member_churches_dev_status"
+msgstr "Note: La liste des Eglises présentes dans chaque pays est encore en développement."
 
 #. Default: "WCC member churches present in ${DYNAMIC_CONTENT}"
 #: ./country_templates/index.pt:54

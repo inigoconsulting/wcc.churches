@@ -62,7 +62,11 @@
           </ul>
       </div>
 
+       <span i18n:translate="wcc_member_churches_dev_status" class="discreet" tal:condition="context/dev_status" >Note: The list of churches present in countries is still in
+           development.</span>
+
       <div class="visualClear">&nbsp;</div>
+
 
       <div id="country-bodytext" tal:content="structure view/w/IBodyText.text/render">
 
