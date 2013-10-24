@@ -40,7 +40,8 @@
           </ul>
       </div>
 
-      <h4 i18n:translate="wcc_member_churches_based_in">WCC member churches based in <tal:block replace="context/title"/></h4>
+      <h4 i18n:translate="wcc_member_churches_based_in">WCC member churches
+          based in <tal:block i18n:name="country_title" replace="context/title"/></h4>
       <div id="country-churchmembers">
           <ul>
             <li tal:repeat="org provider/based_churchmembers">
@@ -51,7 +52,8 @@
           </ul>
       </div>
 
-      <h4 i18n:translate="wcc_member_churches_present_in">WCC member churches present in <tal:block replace="context/title"/></h4>
+      <h4 i18n:translate="wcc_member_churches_present_in">WCC member churches
+          present in <tal:block i18n:name="country_title" replace="context/title"/></h4>
       <div id="country-churchmembers">
           <ul>
             <li tal:repeat="org provider/present_churchmembers">

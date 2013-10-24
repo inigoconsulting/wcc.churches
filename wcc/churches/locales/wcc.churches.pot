@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-24 10:28+0000\n"
+"POT-Creation-Date: 2013-10-24 17:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -318,18 +318,18 @@ msgstr ""
 msgid "wcc.churches import handler"
 msgstr ""
 
-#. Default: "WCC member churches based in ${DYNAMIC_CONTENT}"
-#: ./country_templates/index.pt:43
+#. Default: "WCC member churches based in ${country_title}"
+#: ./country_templates/index.pt:44
 msgid "wcc_member_churches_based_in"
 msgstr ""
 
 #. Default: "Note: The list of churches present in countries is still in development."
-#: ./country_templates/index.pt:65
+#: ./country_templates/index.pt:67
 msgid "wcc_member_churches_dev_status"
 msgstr ""
 
-#. Default: "WCC member churches present in ${DYNAMIC_CONTENT}"
-#: ./country_templates/index.pt:54
+#. Default: "WCC member churches present in ${country_title}"
+#: ./country_templates/index.pt:56
 msgid "wcc_member_churches_present_in"
 msgstr ""
 
