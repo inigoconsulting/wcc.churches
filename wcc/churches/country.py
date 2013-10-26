@@ -49,12 +49,6 @@ class ICountry(form.Schema, IImageScaleTraversable):
         vocabulary='wcc.vocabulary.country'
     )
 
-    dev_status = schema.Bool(
-        title=_(u"Still in development"),
-        required=True,
-        default=False
-    )
-
 # View class
 # The view will automatically use a similarly named template in
 # country_templates.

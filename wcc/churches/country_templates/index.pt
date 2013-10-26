@@ -65,8 +65,7 @@
       </div>
 
        <span i18n:translate="wcc_member_churches_dev_status" class="discreet"
-           tal:condition="context/dev_status | nothing" >Note: The list of churches present in countries is still in
-           development.</span>
+           >Note: The list of churches present in countries is still in development.</span>
 
       <div class="visualClear">&nbsp;</div>
 
