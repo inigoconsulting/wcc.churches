@@ -2,6 +2,11 @@ from collective.grok import gs
 
 # -*- extra stuff goes here -*- 
 
+gs.profile(name=u'to1008',
+           title=u'Upgrade wcc.churches to 1008',
+           description='',
+           directory='profiles/to1008')
+
 gs.profile(name=u'to1007',
            title=u'Upgrade wcc.churches to 1007',
            description='',

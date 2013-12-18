@@ -20,6 +20,8 @@
 
   <include package=".portlet"/>
   <adapter name="countries" factory=".indexers.churchmember_countries" />
+  <adapter name="countries" factory=".indexers.country_countries" />
+
 
   <!-- -*- extra stuff goes here -*- -->
 

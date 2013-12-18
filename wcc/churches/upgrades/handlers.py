@@ -15,6 +15,22 @@ logger = logging.getLogger('wcc.churches')
 # -*- extra stuff goes here -*- 
 
 
+@gs.upgradestep(title=u'Upgrade wcc.churches to 1008',
+                description=u'Upgrade wcc.churches to 1008',
+                source='1007', destination='1008',
+                sortkey=1, profile='wcc.churches:default')
+def to1008(context):
+    setup = getToolByName(context, 'portal_setup')
+    setup.runAllImportStepsFromProfile('profile-wcc.churches.upgrades:to1008')
+
+    catalog = getToolByName(context, 'portal_catalog')
+
+    for brain in catalog(portal_type=['wcc.churches.country'],
+                                    Language='all'):
+        obj = brain.getObject()
+        obj.reindexObject()
+
+
 @gs.upgradestep(title=u'Upgrade wcc.churches to 1007',
                 description=u'Upgrade wcc.churches to 1007',
                 source='1006', destination='1007',

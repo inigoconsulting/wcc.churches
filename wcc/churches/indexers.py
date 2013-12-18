@@ -1,4 +1,5 @@
 from wcc.churches.churchmember import IChurchMember
+from wcc.churches.country import ICountry
 from wcc.churches.behavior.location import ILocationTags
 from plone.indexer.decorator import indexer
 
@@ -11,3 +12,9 @@ def churchmember_countries(context, **kw):
         for country in context.present_in:
             result.append(country)
     return result
+
+@indexer(ICountry)
+def country_countries(context, **kw):
+    if context.country_code:
+        return [context.country_code]
+    return []
