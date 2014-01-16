@@ -148,8 +148,8 @@ class Index(dexterity.DisplayForm):
 
     @memoize
     def _query_geolocation(self, location):
-        geo = geocoders.GeoNames()
-        location = geo.geocode(location, False)
+        geo = geocoders.OpenMapQuest()
+        location = geo.geocode(location)
         return location
 
     def map_state(self):
@@ -161,11 +161,11 @@ class Index(dexterity.DisplayForm):
             return ''
         
         #additional condition to fix problem with congo
-        if not location[0]:
+        if not location:
             return ''
 
 
-        place, (lat, lng) = location[0]
+        place, (lat, lng) = location
         return '''
         cgmap.state['country-cgmap'] = {
             lon : %(lon)s,
