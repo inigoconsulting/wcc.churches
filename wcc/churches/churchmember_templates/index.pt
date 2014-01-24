@@ -85,7 +85,8 @@
               <th>
               <span tal:content="view/w/remoteUrl/label"></span> :  
               </th>
-              <td tal:content="structure view/w/remoteUrl/render"></td>
+              <td> <a tal:attributes="href context/remoteUrl"
+                      tal:content="context/remoteUrl"></a></td>
           </tr>
 
       </table>
