@@ -33,6 +33,7 @@ setup(name='wcc.churches',
           'wcc.vocabularies',
           'collective.geo.bundle',
           'collective.z3cform.datagridfield',
+          'plone.api',
           # -*- Extra requirements: -*-
       ],
       extras_require={

@@ -22,6 +22,7 @@ from plone.indexer.decorator import indexer
 from zope.component.hooks import getSite
 from datetime import date
 from plone.multilingualbehavior.directives import languageindependent
+from plone.api.portal import get_tool
 
 # Interface class; used to define content-type schema.
 
@@ -171,10 +172,11 @@ class ChurchMemberDataProvider(grok.Adapter):
 
     @property
     def remoteUrl(self):
-        url =  self.context.remoteUrl
+        url = self.context.remoteUrl
         if url == 'http://':
             return ''
         return url
+
 
 class Index(dexterity.DisplayForm):
     grok.context(IChurchMember)
@@ -183,3 +185,13 @@ class Index(dexterity.DisplayForm):
 
     def provider(self):
         return IChurchMemberDataProvider(self.context)
+
+    def get_country_info(self, country_code):
+        catalog = get_tool('portal_catalog')
+        return catalog(portal_type="wcc.churches.country",
+                       countries=country_code)
+
+    def get_valid_url(self):
+        if self.context.remoteUrl.startswith('http'):
+            return self.context.remoteUrl
+        return 'http://' + self.context.remoteUrl

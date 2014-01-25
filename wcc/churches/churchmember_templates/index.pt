@@ -36,13 +36,24 @@
               <th>
               <span tal:content="view/w/based_in/label"></span> :
               </th>
-              <td tal:content="structure view/w/based_in/render"></td>
+              <td tal:define="countries  python: view.get_country_info(provider.based_in)">
+                  <a tal:repeat="country countries" tal:attributes="href country/getURL"
+                      tal:content="country/Title"></a>
+              </td>
           </tr>
           <tr>
               <th>
               <span tal:content="view/w/present_in/label"></span> :
               </th>
-              <td tal:content="structure view/w/present_in/render"></td>
+                <td tal:define="countries  python: view.get_country_info(provider.present_in)">
+                  <span tal:repeat="country countries">
+                      <a tal:attributes="href country/getURL" tal:content="country/Title">
+                      </a><span tal:condition="not:repeat/country/end">,</span>
+                  </span>
+              </td>
+
+
+
           </tr>
           <tr>
               <th>
@@ -85,8 +96,8 @@
               <th>
               <span tal:content="view/w/remoteUrl/label"></span> :  
               </th>
-              <td> <a tal:attributes="href context/remoteUrl"
-                      tal:content="context/remoteUrl"></a></td>
+              <td> <a tal:attributes="href view/get_valid_url"
+                      tal:content="provider/remoteUrl"></a></td>
           </tr>
 
       </table>
