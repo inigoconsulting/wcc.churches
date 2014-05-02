@@ -147,23 +147,24 @@ class Index(dexterity.DisplayForm):
         return result
 
     @memoize
-    def _query_geolocation(self, location):
+    def _query_geolocation(self, country, capital):
         geo = geocoders.OpenMapQuest()
-        location = geo.geocode(location)
+
+        try:
+            location = geo.geocode(country)
+        except IndexError:
+            location = geo.geocode(capital)
         return location
 
     def map_state(self):
         vocab = getUtility(IVocabularyFactory, name='wcc.vocabulary.country')
         country = vocab.name_from_code(self.context.country_code)
-        location = self._query_geolocation(country)
-        
-        if not location:
-            return ''
-        
+        capital = lookup_capital(self.context.country_code)
+        location = self._query_geolocation(country, capital)
+
         #additional condition to fix problem with congo
         if not location:
             return ''
-
 
         place, (lat, lng) = location
         return '''
