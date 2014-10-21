@@ -192,6 +192,11 @@ class Index(dexterity.DisplayForm):
                        countries=country_code)
 
     def get_valid_url(self):
-        if self.context.remoteUrl.startswith('http'):
-            return self.context.remoteUrl
-        return 'http://' + self.context.remoteUrl
+        urls = list()
+        original_url = [i.strip() for i in self.context.remoteUrl.split(',')]
+        for i in original_url:
+            if i.startswith('http'):
+                urls.append(i)
+            else:
+                urls.append('http://' + i)
+        return urls

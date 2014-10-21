@@ -96,8 +96,14 @@
               <th>
               <span tal:content="view/w/remoteUrl/label"></span> :  
               </th>
-              <td> <a tal:attributes="href view/get_valid_url"
-                      tal:content="provider/remoteUrl"></a></td>
+              <td tal:define="urls view/get_valid_url">
+                  <tal:block repeat="url urls">
+                  <div>
+                  <a tal:attributes="href url"
+                      tal:content="url"></a>
+                  </div>
+                  </tal:block>
+              </td>
           </tr>
 
       </table>
