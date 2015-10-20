@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.26.dev1 (unreleased)
+-----------------
+
+- commented maps
+
+
 1.26 (unreleased)
 -----------------
 
