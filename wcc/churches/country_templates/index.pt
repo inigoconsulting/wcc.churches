@@ -9,8 +9,8 @@
             <metal:block fill-slot="javascript_head_slot">
                 <metal:use use-macro="context/@@collectivegeo-macros/openlayers" />
 
-                <!--<script tal:content="structure view/map_state">
-                </script>-->
+                <script tal:content="structure view/map_state">
+                </script>
             </metal:block>
             <metal:block fill-slot="style_slot">
             <link rel="stylesheet" type="text/css" 
@@ -73,6 +73,7 @@
       <div id="country-bodytext" tal:content="structure view/w/IBodyText.text/render">
 
       </div>
+      
 
         </tal:block>
   </metal:content-core>
