@@ -27,6 +27,8 @@ from wcc.churches.backref import back_references
 from zope.schema.interfaces import IVocabularyFactory
 from zope.component import getUtility
 from plone.memoize.view import memoize
+import requests
+from wcc.churches import getSettings
 
 # Interface class; used to define content-type schema.
 
@@ -160,13 +162,26 @@ class Index(dexterity.DisplayForm):
         vocab = getUtility(IVocabularyFactory, name='wcc.vocabulary.country')
         country = vocab.name_from_code(self.context.country_code)
         capital = lookup_capital(self.context.country_code)
-        location = self._query_geolocation(country, capital)
-
+        api_key = ''
+        settings  = getSettings()
+        if settings.openmapquest_api_key:
+            api_key = settings.openmapquest_api_key
+        #location = self._query_geolocation(country, capital)
+        loc = requests.get('http://open.mapquestapi.com/geocoding/v1/address?key='+api_key+'&location='+country)
+        if not loc:
+            loc = requests.get('http://open.mapquestapi.com/geocoding/v1/address?key='+api_key+'&location='+capital)
+        
+        
+        
         #additional condition to fix problem with congo
-        if not location:
+        if not loc:
             return ''
+        
+        location = loc.json()
 
-        place, (lat, lng) = location
+        #place, (lat, lng) = location
+        lat = location['results'][0]['locations'][0]['latLng']['lat']
+        lng = location['results'][0]['locations'][0]['latLng']['lng']
         return '''
         cgmap.state['country-cgmap'] = {
             lon : %(lon)s,
