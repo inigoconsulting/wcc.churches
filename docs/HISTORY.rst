@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.26.dev2
+-----------------
+-added registry, added new interface class, modify codes and to access openmapquest, register settings
+
 1.26.dev1 (unreleased)
 -----------------
 
