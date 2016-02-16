@@ -167,9 +167,15 @@ class Index(dexterity.DisplayForm):
         if settings.openmapquest_api_key:
             api_key = settings.openmapquest_api_key
         #location = self._query_geolocation(country, capital)
-        loc = requests.get('http://open.mapquestapi.com/geocoding/v1/address?key='+api_key+'&location='+country)
+        if country == "C\xc3\xb4te d'Ivoire":
+            query = "&country=Cote d'Ivoire"
+        elif country in ['Netherlands Antilles']:
+            query = "&location="+capital
+        else:
+            query ='&country='+country
+        loc = requests.get('http://open.mapquestapi.com/geocoding/v1/address?key='+api_key+query)
         if not loc:
-            loc = requests.get('http://open.mapquestapi.com/geocoding/v1/address?key='+api_key+'&location='+capital)
+            loc = requests.get('http://open.mapquestapi.com/geocoding/v1/address?key='+api_key+'&capital='+capital)
         
         
         
@@ -180,8 +186,12 @@ class Index(dexterity.DisplayForm):
         location = loc.json()
 
         #place, (lat, lng) = location
-        lat = location['results'][0]['locations'][0]['latLng']['lat']
-        lng = location['results'][0]['locations'][0]['latLng']['lng']
+        if location['info']['statuscode'] == 0:
+            lat = location['results'][0]['locations'][0]['latLng']['lat']
+            lng = location['results'][0]['locations'][0]['latLng']['lng']
+        else:
+            lat = 0
+            lng = 0
         return '''
         cgmap.state['country-cgmap'] = {
             lon : %(lon)s,
