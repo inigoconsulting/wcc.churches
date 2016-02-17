@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.26.dev3
+-----------------
+fixed map rendering on certain countries
+
 1.26.dev2
 -----------------
 -added registry, added new interface class, modify codes and to access openmapquest, register settings
