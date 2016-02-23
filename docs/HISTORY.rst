@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.26.dev4
+-----------------
+fix bug on ascii codes 
+
 1.26.dev3
 -----------------
 fixed map rendering on certain countries

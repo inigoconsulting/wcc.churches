@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.26.dev3'
+version = '1.26.dev4'
 
 setup(name='wcc.churches',
       version=version,
