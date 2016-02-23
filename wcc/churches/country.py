@@ -164,16 +164,18 @@ class Index(dexterity.DisplayForm):
         capital = lookup_capital(self.context.country_code)
         api_key = ''
         settings  = getSettings()
+        capital = unicode(capital, errors='ignore')
         if settings.openmapquest_api_key:
             api_key = settings.openmapquest_api_key
         #location = self._query_geolocation(country, capital)
         if country == "C\xc3\xb4te d'Ivoire":
             query = "&country=Cote d'Ivoire"
-        elif country in ['Netherlands Antilles']:
+        elif country in ['Netherlands Antilles',]:
             query = "&location="+capital
         else:
             query ='&country='+country
         loc = requests.get('http://open.mapquestapi.com/geocoding/v1/address?key='+api_key+query)
+        
         if not loc:
             loc = requests.get('http://open.mapquestapi.com/geocoding/v1/address?key='+api_key+'&capital='+capital)
         
