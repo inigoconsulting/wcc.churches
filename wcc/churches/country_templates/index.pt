@@ -6,18 +6,56 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="wcc.churches">
       <head>
-            <metal:block fill-slot="javascript_head_slot">
+            <!--<metal:block fill-slot="javascript_head_slot">
                 <metal:use use-macro="context/@@collectivegeo-macros/openlayers" />
 
                 <script tal:content="structure view/map_state">
                 </script>
-            </metal:block>
+            </metal:block>-->
             <metal:block fill-slot="style_slot">
             <link rel="stylesheet" type="text/css" 
             tal:define="navroot context/@@plone_portal_state/navigation_root_url"
             tal:attributes="href string:${navroot}/++resource++wcc.churches/country.css"
             />
             </metal:block>
+            
+            <metal:block fill-slot="javascript_head_slot">
+                  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                  
+                  <script type="text/javascript">
+                        google.charts.load('current', {
+                              'packages':['map'],
+                              'mapsApiKey': 'AIzaSyDIy0eQe5uJQ0-3A7MAYXHVMqlOWRp9rnw'
+                            });
+                        var options = {};
+                        var chart;
+                        google.charts.setOnLoadCallback(drawRegionsMap);
+                        function drawRegionsMap() {
+                              var data = new google.visualization.DataTable();
+                              data.addColumn('string', 'Country');
+                              data.addColumn('string', 'Name');
+                              var data_raw = [];
+                              country = $('div#country_name').html();
+                              if (country == 'Willemstad'){
+                                    data_raw.push([country, 'Netherlands Antilles']);
+                              }else{
+                                    data_raw.push([country, country]);
+                              }
+                              data.addRows(data_raw);
+                              
+                              var options = {
+                                    zoomLevel: 4,
+                                    showTooltip: true,
+                                    showInfoWindow: true
+                              };
+                              
+                              var chart = new google.visualization.Map(document.getElementById('country-cgmap'));
+                              chart.draw(data, options);
+                              
+                        }
+                        
+                  </script>
+              </metal:block>
       </head>
 <body>
 
@@ -25,9 +63,12 @@
   <metal:content-core define-macro="content-core">
 
       <tal:block define="provider view/provider">
-      <tal:block define="cgmap view/cgmap">
+      <!--<tal:block define="cgmap view/cgmap">
           <metal:use use-macro="context/@@collectivegeo-macros/map-widget" />
-      </tal:block>
+      </tal:block>-->
+      <div id="country_name" tal:content="view/get_map_name" style='display:none'></div>
+      
+      <div id='country-cgmap'></div>
 
       <h4 i18n:translate="ecumenical_organizations_and_councils">Ecumenical Organizations and Councils</h4>
       <div id="country-ecunemicalorgs">
