@@ -206,3 +206,14 @@ class Index(dexterity.DisplayForm):
         cgmap = MapWidget(self, self.request, self.context)
         cgmap.mapid = 'country-cgmap'
         return cgmap
+    
+    def get_map_name(self):
+        vocab = getUtility(IVocabularyFactory, name='wcc.vocabulary.country')
+        country = vocab.name_from_code(self.context.country_code) if self.context.country_code else ''
+        if country == "C\xc3\xb4te d'Ivoire":
+            country = "Cote d'Ivoire"
+        elif country in ['Netherlands Antilles']:
+            country = 'Willemstad'
+        return country
+        
+        
