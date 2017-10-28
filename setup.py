@@ -49,7 +49,7 @@ setup(name='wcc.churches',
       # The next two lines may be deleted after you no longer need
       # addcontent support from paster and before you distribute
       # your package.
-      setup_requires=["PasteScript"],
-      paster_plugins=["templer.localcommands"],
+      #setup_requires=["PasteScript"],
+      #paster_plugins=["templer.localcommands"],
 
       )
